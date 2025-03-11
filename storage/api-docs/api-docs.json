@@ -1,0 +1,2902 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mi API nueva",
+        "description": "DescripciÃ³n de mi API.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/pagos": {
+            "get": {
+                "tags": [
+                    "Pagos"
+                ],
+                "summary": "Listar todos los pagos",
+                "operationId": "3ca9f79a1f4538ea857cb301bd338f05",
+                "responses": {
+                    "200": {
+                        "description": "Lista de pagos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pagos obtenidos correctamente"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "user_id": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "concepto": {
+                                                        "type": "string",
+                                                        "example": "Cuota mantenimiento"
+                                                    },
+                                                    "fecha": {
+                                                        "type": "string",
+                                                        "example": "2024-02-10"
+                                                    },
+                                                    "vence": {
+                                                        "type": "string",
+                                                        "example": "2024-02-20"
+                                                    },
+                                                    "documento": {
+                                                        "type": "string",
+                                                        "example": "03/B002-0058037"
+                                                    },
+                                                    "currency_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "importe": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 290
+                                                    },
+                                                    "estado": {
+                                                        "type": "string",
+                                                        "example": "Pagado"
+                                                    },
+                                                    "user": {
+                                                        "description": "Datos del usuario relacionados (opcional si has usado with('user'))",
+                                                        "type": "object"
+                                                    },
+                                                    "currency": {
+                                                        "description": "Datos de la moneda relacionados (opcional si has usado with('currency'))",
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Pagos"
+                ],
+                "summary": "Crear un nuevo pago",
+                "operationId": "13765722c9eaf4988ed822cf3e23d05e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "user_id",
+                                    "concepto",
+                                    "fecha",
+                                    "importe",
+                                    "estado",
+                                    "currency_id"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "concepto": {
+                                        "type": "string",
+                                        "example": "Cuota mantenimiento"
+                                    },
+                                    "fecha": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-02-10"
+                                    },
+                                    "vence": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-02-20"
+                                    },
+                                    "documento": {
+                                        "type": "string",
+                                        "example": "03/B002-0058037"
+                                    },
+                                    "currency_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "importe": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 290
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "Pendiente"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pago creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pago creado correctamente"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "concepto": {
+                                                    "type": "string",
+                                                    "example": "Cuota mantenimiento"
+                                                },
+                                                "fecha": {
+                                                    "type": "string",
+                                                    "example": "2024-02-10"
+                                                },
+                                                "vence": {
+                                                    "type": "string",
+                                                    "example": "2024-02-20"
+                                                },
+                                                "documento": {
+                                                    "type": "string",
+                                                    "example": "03/B002-0058037"
+                                                },
+                                                "currency_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "importe": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 290
+                                                },
+                                                "estado": {
+                                                    "type": "string",
+                                                    "example": "Pendiente"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validaciÃ³n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validaciÃ³n"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/pagos/{id}": {
+            "get": {
+                "tags": [
+                    "Pagos"
+                ],
+                "summary": "Obtener un pago especÃ­fico",
+                "operationId": "35db17a6713f7f14c884e850bb34de36",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pago",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pago encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pago obtenido correctamente"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "concepto": {
+                                                    "type": "string",
+                                                    "example": "Cuota mantenimiento"
+                                                },
+                                                "fecha": {
+                                                    "type": "string",
+                                                    "example": "2024-02-10"
+                                                },
+                                                "vence": {
+                                                    "type": "string",
+                                                    "example": "2024-02-20"
+                                                },
+                                                "documento": {
+                                                    "type": "string",
+                                                    "example": "03/B002-0058037"
+                                                },
+                                                "currency_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "importe": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 290
+                                                },
+                                                "estado": {
+                                                    "type": "string",
+                                                    "example": "Pagado"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pago no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pago no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Pagos"
+                ],
+                "summary": "Actualizar un pago",
+                "operationId": "adffb8b1367089abb3140555a378c624",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pago",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "concepto": {
+                                        "type": "string",
+                                        "example": "Cuota mantenimiento"
+                                    },
+                                    "fecha": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-02-10"
+                                    },
+                                    "vence": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-02-20"
+                                    },
+                                    "documento": {
+                                        "type": "string",
+                                        "example": "03/B002-0058037"
+                                    },
+                                    "currency_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "importe": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 290
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "Pendiente"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pago actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pago actualizado correctamente"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pago no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pago no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validaciÃ³n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validaciÃ³n"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Pagos"
+                ],
+                "summary": "Eliminar un pago",
+                "operationId": "bb99b65924bad2d7effaaa9a125bb12d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pago",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Pago eliminado"
+                    },
+                    "404": {
+                        "description": "Pago no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pago no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/pagos/user/{user_id}": {
+            "get": {
+                "tags": [
+                    "Pagos"
+                ],
+                "summary": "Listar pagos de un usuario especÃ­fico con paginaciÃ³n",
+                "operationId": "bfd6a6d58c4a77c909578f7f64df5a83",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "NÃºmero de pÃ¡gina de la paginaciÃ³n (por defecto 1)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Cantidad de registros por pÃ¡gina (por defecto 10)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista paginada de pagos del usuario",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pagos del usuario obtenidos correctamente"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "user_id": {
+                                                                "type": "integer",
+                                                                "example": 2
+                                                            },
+                                                            "concepto": {
+                                                                "type": "string",
+                                                                "example": "Cuota mantenimiento"
+                                                            },
+                                                            "fecha": {
+                                                                "type": "string",
+                                                                "example": "2024-02-10"
+                                                            },
+                                                            "vence": {
+                                                                "type": "string",
+                                                                "example": "2024-02-20"
+                                                            },
+                                                            "documento": {
+                                                                "type": "string",
+                                                                "example": "03/B002-0058037"
+                                                            },
+                                                            "currency_id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "importe": {
+                                                                "type": "number",
+                                                                "format": "float",
+                                                                "example": 290
+                                                            },
+                                                            "estado": {
+                                                                "type": "string",
+                                                                "example": "Pagado"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "total": {
+                                                    "type": "integer",
+                                                    "example": 30
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "last_page": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "from": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "to": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/roles": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Listar todos los roles",
+                "operationId": "6cd48af64dafcf1c85923dba47e841a4",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "NÃºmero de pÃ¡gina",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Cantidad de roles por pÃ¡gina",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de roles paginada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Roles obtenidos correctamente"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "roles": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Role"
+                                                    }
+                                                },
+                                                "pagination": {
+                                                    "properties": {
+                                                        "current_page": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "per_page": {
+                                                            "type": "integer",
+                                                            "example": 10
+                                                        },
+                                                        "total": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Crear un nuevo rol",
+                "operationId": "4eb1ce389f63b4dbfcc5b002014636e1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Rol creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol creado correctamente"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Role"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validaciÃ³n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validaciÃ³n"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{id}": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Obtener un rol especÃ­fico",
+                "operationId": "d932a477623c1c931444dcc799f1eb0a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del rol",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Rol encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol obtenido correctamente"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Role"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Rol no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Actualizar un rol",
+                "operationId": "e0fa8b9f9f9cfb6c7e51a7609dd35dcd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del rol",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "editor"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Rol actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol actualizado correctamente"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Role"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Rol no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validaciÃ³n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validaciÃ³n"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Eliminar un rol",
+                "operationId": "a0c87b804be9d37055fc6f936cbacb1b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del rol",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Rol eliminado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol eliminado correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Rol no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Rol no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/permissions": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Listar todos los permisos",
+                "operationId": "5af58430280b4d6060e8ca02a5849121",
+                "responses": {
+                    "200": {
+                        "description": "Lista de permisos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Permisos obtenidos correctamente"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Permission"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Crear un nuevo permiso",
+                "operationId": "9ab5c52a6f340c26577c8457e457662c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "edit posts"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Permiso creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Permiso creado correctamente"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Permission"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validaciÃ³n",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validaciÃ³n"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/permissions/{id}": {
+            "delete": {
+                "tags": [
+                    "Roles"
+                ],
+                "summary": "Eliminar un permiso",
+                "operationId": "ff24abc7a6305ccdbcba8095de40395b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del permiso",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Permiso eliminado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Permiso eliminado correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Permiso no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Permiso no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Listar todos los usuarios",
+                "operationId": "d7a57f4d7de18fb0f92501172472c9b6",
+                "responses": {
+                    "200": {
+                        "description": "Lista de usuarios",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Crear un nuevo usuario",
+                "operationId": "9fea6f2adcb69614c521a7733358382d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "estado": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "tipo_doc": {
+                                        "type": "string",
+                                        "example": "DNI"
+                                    },
+                                    "nro_doc": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "detail": {
+                                        "properties": {
+                                            "codigo": {
+                                                "type": "string",
+                                                "example": "12345"
+                                            },
+                                            "nombres": {
+                                                "type": "string",
+                                                "example": "John"
+                                            },
+                                            "apellido_pa": {
+                                                "type": "string",
+                                                "example": "Doe"
+                                            },
+                                            "apellido_ma": {
+                                                "type": "string",
+                                                "example": "Smith"
+                                            },
+                                            "nacionalidad": {
+                                                "type": "string",
+                                                "example": "Mexicana"
+                                            },
+                                            "lugar_nac": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "edo_civil": {
+                                                "type": "string",
+                                                "example": "Soltero"
+                                            },
+                                            "sexo": {
+                                                "type": "string",
+                                                "example": "Masculino"
+                                            },
+                                            "fech_nac": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "1990-01-01"
+                                            },
+                                            "edad": {
+                                                "type": "integer",
+                                                "example": 33
+                                            },
+                                            "fech_ingreso": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2023-01-01"
+                                            },
+                                            "nro_solicitud": {
+                                                "type": "string",
+                                                "example": "SOL123"
+                                            },
+                                            "direccion": {
+                                                "type": "string",
+                                                "example": "Calle Falsa 123"
+                                            },
+                                            "ubicacion": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "tel_fijo": {
+                                                "type": "string",
+                                                "example": "5551234567"
+                                            },
+                                            "tel_cel": {
+                                                "type": "string",
+                                                "example": "5557654321"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "format": "email",
+                                                "example": "john.doe@example.com"
+                                            },
+                                            "centro_estudio": {
+                                                "type": "string",
+                                                "example": "Universidad Nacional"
+                                            },
+                                            "especialidad": {
+                                                "type": "string",
+                                                "example": "Ingenieri­a de Software"
+                                            },
+                                            "profesion": {
+                                                "type": "string",
+                                                "example": "Ingeniero"
+                                            },
+                                            "telefono_empresa": {
+                                                "type": "string",
+                                                "example": "5559876543"
+                                            },
+                                            "centro_laboral": {
+                                                "type": "string",
+                                                "example": "Empresa XYZ"
+                                            },
+                                            "fax_empresa": {
+                                                "type": "string",
+                                                "example": "5559876544"
+                                            },
+                                            "cargo_laboral": {
+                                                "type": "string",
+                                                "example": "Desarrollador"
+                                            },
+                                            "dir_empresa": {
+                                                "type": "string",
+                                                "example": "Avenida Siempre Viva 742"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validacion",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validacion"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Obtener un usuario especi­fico",
+                "operationId": "40a5104e23b52137e78c3d3ac48b88a8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Actualizar un usuario",
+                "operationId": "b166772cec9714067040e77cf14beeba",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "newpassword123"
+                                    },
+                                    "estado": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "tipo_doc": {
+                                        "type": "string",
+                                        "example": "DNI"
+                                    },
+                                    "nro_doc": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "detail": {
+                                        "properties": {
+                                            "codigo": {
+                                                "type": "string",
+                                                "example": "12345"
+                                            },
+                                            "nombres": {
+                                                "type": "string",
+                                                "example": "John"
+                                            },
+                                            "apellido_pa": {
+                                                "type": "string",
+                                                "example": "Doe"
+                                            },
+                                            "apellido_ma": {
+                                                "type": "string",
+                                                "example": "Smith"
+                                            },
+                                            "nacionalidad": {
+                                                "type": "string",
+                                                "example": "Mexicana"
+                                            },
+                                            "lugar_nac": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "edo_civil": {
+                                                "type": "string",
+                                                "example": "Soltero"
+                                            },
+                                            "sexo": {
+                                                "type": "string",
+                                                "example": "Masculino"
+                                            },
+                                            "fech_nac": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "1990-01-01"
+                                            },
+                                            "edad": {
+                                                "type": "integer",
+                                                "example": 33
+                                            },
+                                            "fech_ingreso": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2023-01-01"
+                                            },
+                                            "nro_solicitud": {
+                                                "type": "string",
+                                                "example": "SOL123"
+                                            },
+                                            "direccion": {
+                                                "type": "string",
+                                                "example": "Calle Falsa 123"
+                                            },
+                                            "ubicacion": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "tel_fijo": {
+                                                "type": "string",
+                                                "example": "5551234567"
+                                            },
+                                            "tel_cel": {
+                                                "type": "string",
+                                                "example": "5557654321"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "format": "email",
+                                                "example": "john.doe@example.com"
+                                            },
+                                            "centro_estudio": {
+                                                "type": "string",
+                                                "example": "Universidad Nacional"
+                                            },
+                                            "especialidad": {
+                                                "type": "string",
+                                                "example": "Ingenieri­a de Software"
+                                            },
+                                            "profesion": {
+                                                "type": "string",
+                                                "example": "Ingeniero"
+                                            },
+                                            "telefono_empresa": {
+                                                "type": "string",
+                                                "example": "5559876543"
+                                            },
+                                            "centro_laboral": {
+                                                "type": "string",
+                                                "example": "Empresa XYZ"
+                                            },
+                                            "fax_empresa": {
+                                                "type": "string",
+                                                "example": "5559876544"
+                                            },
+                                            "cargo_laboral": {
+                                                "type": "string",
+                                                "example": "Desarrollador"
+                                            },
+                                            "dir_empresa": {
+                                                "type": "string",
+                                                "example": "Avenida Siempre Viva 742"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validacion",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validacion"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Eliminar un usuario",
+                "operationId": "ce06860a51ab016ef66e753544fe4563",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Usuario eliminado"
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}/limited": {
+            "put": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Actualizar un usuario (campos limitados)",
+                "operationId": "78b3ad4d89996006812c9f346fcb68c8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "detail": {
+                                        "properties": {
+                                            "nombres": {
+                                                "type": "string",
+                                                "example": "John"
+                                            },
+                                            "apellido_pa": {
+                                                "type": "string",
+                                                "example": "Doe"
+                                            },
+                                            "apellido_ma": {
+                                                "type": "string",
+                                                "example": "Smith"
+                                            },
+                                            "nacionalidad": {
+                                                "type": "string",
+                                                "example": "Mexicana"
+                                            },
+                                            "lugar_nac": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "edo_civil": {
+                                                "type": "string",
+                                                "example": "Soltero"
+                                            },
+                                            "sexo": {
+                                                "type": "string",
+                                                "example": "Masculino"
+                                            },
+                                            "fech_nac": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "1990-01-01"
+                                            },
+                                            "edad": {
+                                                "type": "integer",
+                                                "example": 33
+                                            },
+                                            "direccion": {
+                                                "type": "string",
+                                                "example": "Calle Falsa 123"
+                                            },
+                                            "ubicacion": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "tel_fijo": {
+                                                "type": "string",
+                                                "example": "5551234567"
+                                            },
+                                            "tel_cel": {
+                                                "type": "string",
+                                                "example": "5557654321"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "format": "email",
+                                                "example": "john.doe@example.com"
+                                            },
+                                            "centro_estudio": {
+                                                "type": "string",
+                                                "example": "Universidad Nacional"
+                                            },
+                                            "especialidad": {
+                                                "type": "string",
+                                                "example": "Ingenieri­a de Software"
+                                            },
+                                            "profesion": {
+                                                "type": "string",
+                                                "example": "Ingeniero"
+                                            },
+                                            "telefono_empresa": {
+                                                "type": "string",
+                                                "example": "5559876543"
+                                            },
+                                            "centro_laboral": {
+                                                "type": "string",
+                                                "example": "Empresa XYZ"
+                                            },
+                                            "fax_empresa": {
+                                                "type": "string",
+                                                "example": "5559876544"
+                                            },
+                                            "cargo_laboral": {
+                                                "type": "string",
+                                                "example": "Desarrollador"
+                                            },
+                                            "dir_empresa": {
+                                                "type": "string",
+                                                "example": "Avenida Siempre Viva 742"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validacion",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validacion"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}/relative": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Crear un nuevo usuario y asociarlo como pariente. Requiere permisos user_create y user_family_create.",
+                "operationId": "db2044d933412324f80f17b2eaa9c26c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario principal",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "relationship_type"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "foto": {
+                                        "type": "string",
+                                        "example": "00004"
+                                    },
+                                    "relationship_type": {
+                                        "type": "string",
+                                        "example": "son"
+                                    },
+                                    "tipo_doc": {
+                                        "type": "string",
+                                        "example": "DNI"
+                                    },
+                                    "nro_doc": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "detail": {
+                                        "properties": {
+                                            "codigo": {
+                                                "type": "string",
+                                                "example": "12345"
+                                            },
+                                            "nombres": {
+                                                "type": "string",
+                                                "example": "John"
+                                            },
+                                            "apellido_pa": {
+                                                "type": "string",
+                                                "example": "Doe"
+                                            },
+                                            "apellido_ma": {
+                                                "type": "string",
+                                                "example": "Smith"
+                                            },
+                                            "nacionalidad": {
+                                                "type": "string",
+                                                "example": "Mexicana"
+                                            },
+                                            "lugar_nac": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "edo_civil": {
+                                                "type": "string",
+                                                "example": "Soltero"
+                                            },
+                                            "sexo": {
+                                                "type": "string",
+                                                "example": "Masculino"
+                                            },
+                                            "fech_nac": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "1990-01-01"
+                                            },
+                                            "edad": {
+                                                "type": "integer",
+                                                "example": 33
+                                            },
+                                            "fech_ingreso": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "example": "2023-01-01"
+                                            },
+                                            "nro_solicitud": {
+                                                "type": "string",
+                                                "example": "SOL123"
+                                            },
+                                            "direccion": {
+                                                "type": "string",
+                                                "example": "Calle Falsa 123"
+                                            },
+                                            "ubicacion": {
+                                                "type": "string",
+                                                "example": "Ciudad de Mexico"
+                                            },
+                                            "tel_fijo": {
+                                                "type": "string",
+                                                "example": "5551234567"
+                                            },
+                                            "tel_cel": {
+                                                "type": "string",
+                                                "example": "5557654321"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "format": "email",
+                                                "example": "john.relative@example.com"
+                                            },
+                                            "centro_estudio": {
+                                                "type": "string",
+                                                "example": "Universidad Nacional"
+                                            },
+                                            "especialidad": {
+                                                "type": "string",
+                                                "example": "Ingenieri­a de Software"
+                                            },
+                                            "profesion": {
+                                                "type": "string",
+                                                "example": "Ingeniero"
+                                            },
+                                            "telefono_empresa": {
+                                                "type": "string",
+                                                "example": "5559876543"
+                                            },
+                                            "centro_laboral": {
+                                                "type": "string",
+                                                "example": "Empresa XYZ"
+                                            },
+                                            "fax_empresa": {
+                                                "type": "string",
+                                                "example": "5559876544"
+                                            },
+                                            "cargo_laboral": {
+                                                "type": "string",
+                                                "example": "Desarrollador"
+                                            },
+                                            "dir_empresa": {
+                                                "type": "string",
+                                                "example": "Avenida Siempre Viva 742"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario creado y asociado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario principal no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validacion",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validacion"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nombre es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}/relatives": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Obtener todos los familiares asociados a un usuario",
+                "description": "Devuelve una lista de los usuarios que son familiares del usuario principal, junto con sus detalles y tipo de relacion.",
+                "operationId": "9469a64f4549e048d4fdb75af165255f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario principal",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de familiares encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Familiares obtenidos correctamente"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "John Relative"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "john.relative@example.com"
+                                                    },
+                                                    "pivot": {
+                                                        "properties": {
+                                                            "relationship_type": {
+                                                                "type": "string",
+                                                                "example": "son"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "detail": {
+                                                        "properties": {
+                                                            "nombres": {
+                                                                "type": "string",
+                                                                "example": "John"
+                                                            },
+                                                            "apellido_pa": {
+                                                                "type": "string",
+                                                                "example": "Doe"
+                                                            },
+                                                            "apellido_ma": {
+                                                                "type": "string",
+                                                                "example": "Smith"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/codigo/{codigo}": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Obtener un usuario especi­fico por codigo",
+                "operationId": "52685f2a8379fb4321a4823dca10f011",
+                "parameters": [
+                    {
+                        "name": "codigo",
+                        "in": "path",
+                        "description": "Codigo del usuario (almacenado en user_details)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuario no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Sesion"
+                ],
+                "summary": "Iniciar sesion de usuario",
+                "description": "Permite al usuario iniciar sesion mediante nro_doc y password, y obtener un token de acceso. \n     *                  Tambien se encarga de eliminar tokens antiguos (mas de 1 dia) y mantener un maximo de 3 tokens por usuario.",
+                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "requestBody": {
+                    "description": "Credenciales de inicio de sesion",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nro_doc",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "nro_doc": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Inicio de sesion exitoso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Inicio de sesion exitoso"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "access_token": {
+                                                    "type": "string",
+                                                    "example": "1|xyz..."
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "Bearer"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "john.doe@example.com"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Credenciales invalidas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Credenciales invalidas"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Errores de validacion",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Errores de validacion"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "nro_doc": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo nro_doc es requerido."
+                                                    }
+                                                },
+                                                "password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo password es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Sesion"
+                ],
+                "summary": "Cerrar sesion",
+                "description": "Cierra la sesion del usuario y revoca su token de acceso.",
+                "operationId": "fe8f3429cd6979b3b4517e186505f9f9",
+                "responses": {
+                    "200": {
+                        "description": "Sesion cerrada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sesion cerrada correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/change-password": {
+            "post": {
+                "tags": [
+                    "Sesion"
+                ],
+                "summary": "Cambiar la contraseña del usuario autenticado",
+                "description": "Permite al usuario autenticado cambiar su contraseña, validando la contraseña actual.",
+                "operationId": "540baf9b2324b156be71c57911de6714",
+                "requestBody": {
+                    "description": "Datos para cambiar la contraseña",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "current_password",
+                                    "new_password"
+                                ],
+                                "properties": {
+                                    "current_password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "oldpassword123"
+                                    },
+                                    "new_password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "newpassword123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Contraseña actualizada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Â¡Contraseña actualizada con exito!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validacion o contraseña actual incorrecta",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "La contraseña actual no coincide o error de validacion"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "current_password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo current_password es requerido."
+                                                    }
+                                                },
+                                                "new_password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "El campo new_password es requerido."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "No autenticado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Token invalido o no enviado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Role": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "admin"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-10-01T12:00:00.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-10-01T12:00:00.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Permission": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "edit posts"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-10-01T12:00:00.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-10-01T12:00:00.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "title": "Usuario",
+                "description": "Modelo de usuario",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "john.doe@example.com"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "Bearer",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Pagos",
+            "description": "Pagos"
+        },
+        {
+            "name": "Roles",
+            "description": "Roles"
+        },
+        {
+            "name": "Usuarios",
+            "description": "Usuarios"
+        },
+        {
+            "name": "Sesion",
+            "description": "Sesion"
+        }
+    ]
+}
