@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="access-token" content="{{ session('access_token') }}">
     <link rel="stylesheet" href="css/style.css" />
     <title>Familiares registrados</title>
   </head>
@@ -2420,11 +2421,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
   // Configura tu token y el id del usuario (puedes obtenerlos dine¡micamente)
-  const token = 'TU_TOKEN_AQUI';
-  const userId = 1; // Ejemplo, cambia segeºn corresponda
+  const token = document.querySelector('meta[name="access-token"]').getAttribute('content');
+  const userId = "{{ Auth::user()->id }}"; // Ejemplo, cambia segeºn corresponda
 
   // URL de la API para obtener los familiares
-  const apiUrl = `http://rinconada2.test/api/users/${userId}/relatives`;
+  const apiUrl = `http://rinconada.test/api/users/${userId}/relatives`;
 
   // Contenedor en el DOM donde se mostrare¡n las tarjetas
   const container = document.getElementById('familiares-container');

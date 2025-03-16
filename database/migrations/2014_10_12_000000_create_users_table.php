@@ -22,6 +22,10 @@ return new class extends Migration
             $table->boolean('estado')->default(false);
             $table->string('tipo_doc')->nullable();
             $table->string('nro_doc')->unique();
+            $table->string('codcli')->nullable();
+            $table->string('codpar')->nullable();
+            $table->string('codfam')->nullable();
+            $table->string('CodSoc')->nullable();
             $table->boolean('force_password_change')->default(false);
             $table->rememberToken();
             $table->timestamps();
@@ -36,3 +40,4 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+

@@ -27,6 +27,10 @@ class User extends Authenticatable
         'estado',
         'tipo_doc',
         'nro_doc',
+        'codcli',
+        'codpar',
+        'codfam',
+        'CodSoc',
     ];
 
     /**

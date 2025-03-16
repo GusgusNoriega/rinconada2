@@ -22,8 +22,8 @@ class UserImport implements ToModel, WithHeadingRow
             return null; // Si ya existe, no insertarlo
         }
 
-        // Asignar contraseña: si 'codcli' no tiene valor, se asigna "12345678" por defecto.
-        $passwordValue = (!empty($row['codcli'])) ? trim($row['codcli']) : '12345678';
+        // Asignar contraseña: si 'CodSoc' no tiene valor, se asigna "12345678" por defecto.
+        $passwordValue = (!empty($row['codsoc'])) ? trim($row['codsoc']) : '12345678';
 
         return new User([
             'name'     => trim(($row['apepat'] ?? 'sin-apallido-paterno') . ' ' . ($row['apemat'] ?? 'sin-apallido-materno') . ' ' .  ($row['nombre'] ?? 'Sin Nombre')), // Construye el nombre completo
@@ -33,6 +33,48 @@ class UserImport implements ToModel, WithHeadingRow
             'estado'   => isset($row['estado']) ? (bool) $row['estado'] : false, // Convierte a booleano
             'tipo_doc' => trim($row['tipdoc']) ?? null,
             'nro_doc'  => trim($row['nrodni']) ?? null,
+            'codcli'  => trim($row['codcli']) ?? null,
+            'codpar' => trim($row['codpar'] ?? ''),
+            'codfam' => trim($row['codfam'] ?? ''),
+            'CodSoc' => trim($row['codsoc'] ?? ''),
         ]);
+
+         // Opcional: Retornar el usuario directamente.
+        // Laravel Excel en el background llamará a ->save().
+        // Sin embargo, si necesitamos manipular al usuario justo después
+        // de ser creado pero *antes* de retornarlo,
+        // se sugiere forzar el guardado manual y continuar:
+
+            $user->save();
+
+            // 4. Si este usuario es "familiar":
+            //    - Debe tener codfam no vacío
+            //    - Y NO debe tener codsoc
+            if (!empty($user->codfam) && empty($user->CodSoc)) {
+                // Asignarle el rol "familiar"
+                $user->assignRole('familiar');
+    
+                // 5. Buscar el "titular" que tenga el mismo codcli
+                //    y que SÍ tenga CodSoc
+                $titular = User::where('codcli', $user->codcli)
+                               ->whereNotNull('CodSoc')  // o where('CodSoc','!=','')
+                               ->first();
+    
+                // 6. Si existe, relacionarlos como "familiares" en la tabla pivote
+                if ($titular) {
+                    // Aquí decides cuál de las dos formas vas a usar.
+                    // Normalmente, el "titular" es quien tiene un 'familiar', así que:
+                    $titular->relatives()->syncWithoutDetaching([
+                        $user->id => ['relationship_type' => 'familiar'],
+                    ]);
+                    
+                    // O si prefieres que sea al revés (depende de tu lógica):
+                    // $user->relatives()->syncWithoutDetaching([
+                    //     $titular->id => ['relationship_type' => 'titular'],
+                    // ]);
+                }
+            }
+
+            return $user;
     }
 }
