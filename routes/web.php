@@ -19,6 +19,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/inicio', function () {
+    return view('inicio');
+})->name('inicio');
+
+Route::get('/control-de-ingreso', function () {
+    return view('control-de-ingreso');
+})->name('control-de-ingreso');
+
+Route::get('/mesa-de-partes-virtual', function () {
+    return view('mesa-de-partes-virtual');
+})->name('mesa-de-partes-virtual');
+
+Route::get('/objetos-perdidos', function () {
+    return view('objetos-perdidos');
+})->name('objetos-perdidos');
+
+Route::get('/registro-de-vehiculos', function () {
+    return view('registro-de-vehiculos');
+})->name('registro-de-vehiculos');
+
+Route::get('/registro-de-visitantes', function () {
+    return view('registro-de-visitantes');
+})->name('registro-de-visitantes');
+
+Route::get('/transparencia_y_administracion', function () {
+    return view('transparencia_y_administracion');
+})->name('transparencia_y_administracion');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 // PÃ¡gina de inicio de sesiÃ³n (pÃºblica)
