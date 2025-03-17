@@ -216,6 +216,24 @@
 
                 </ul>
             </div>
+            <div class="item">
+                <div class="cabecera submenu">
+                    <a href="#">
+                        <svg width="17" height="19" viewBox="0 0 17 19" fill="none" 
+                            xmlns="http://www.      w3.org/2000/svg">
+                            <path d="M7.20832 9.46665L5.52787 7.7862L4.61304 8.70104L7.20832 11.2963L12.3989 6.10576L11.4841 5.19092L7.20832 9.46665Z" fill="white"/>
+                            <path d="M8.50607 18.167L4.49895 16.0304C3.3565 15.4228 2.40112 14.5155 1.73539 13.4059C1.06965 12.2963 0.718703 11.0263 0.72022 9.73232V1.29764C0.72022 0.953486 0.856935 0.623426 1.10029 0.380071C1.34365 0.136715 1.67371 0 2.01786 0H14.9943C15.3384 0 15.6685 0.136715 15.9119 0.380071C16.1552 0.623426 16.2919 0.953486 16.2919 1.29764V9.73232C16.2934 11.0263 15.9425 12.2963 15.2768 13.4059C14.611 14.5155 13.6556 15.4228 12.5132 16.0304L8.50607 18.167ZM2.01786 1.29764V9.73232C2.01714 10.791 2.30456 11.8299 2.84931 12.7377C3.39406 13.6454 4.1756 14.3878 5.11014 14.8853L8.50607 16.6961L11.902 14.8859C12.8366 14.3884 13.6182 13.6459 14.163 12.738C14.7078 11.8302 14.9951 10.7911 14.9943 9.73232V1.29764H2.01786Z" fill="white"/>
+                        </svg>
+                        Seguridad</a>
+                </div>
+                <ul>
+                    <li class="active"><a href="{{ route('control-de-ingreso') }}">Control de ingreso</a></li>
+                    <li class="active"><a href="{{ route('registro-de-vehiculos') }}">Registro de vehiculos</a></li>
+                    <li class="active"><a href="{{ route('registro-de-visitantes') }}">Registro de visitantes</a></li>
+                    <li class="active"><a href="{{ route('objetos-perdidos') }}">Objetos perdidos</a></li>
+                    <li class="active"><a href="{{ route('transparencia_y_administracion') }}">Transparencia y administracion</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="part2">

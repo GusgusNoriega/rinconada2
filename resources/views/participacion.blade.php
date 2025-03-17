@@ -85,7 +85,7 @@
             </div>
 
             <div class="item">
-              <a href="#">
+              <a href="{{ route('mesa-de-partes-virtual') }}">
                 <img src="imgs/icon_mesadepartes.svg" alt="" />
                 <p>Mesa de Partes Virtual</p>
               </a>
