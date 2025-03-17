@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/inicio', function () {
+    return view('inicio');
+})->name('inicio');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 // PÃ¡gina de inicio de sesiÃ³n (pÃºblica)
