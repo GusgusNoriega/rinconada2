@@ -13,7 +13,7 @@
 
 <body>
     <div class="page">
-    <x-barra-lateral />
+        <x-barra-lateral />
         <div class="menuMovil">
             <button class="menuBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="18" viewBox="0 0 32 18" fill="none">
@@ -35,7 +35,7 @@
             </button>
         </div>
         <main>
-        <x-cabecera-top />
+            <x-cabecera-top />
             <div class="datos">
                 <h2>Datos personales</h2>
                 <div class="card">
@@ -115,19 +115,19 @@
                 <div class="cuerpo">
                     <div class="contentInput">
                         <p>Codigo de socio</p>
-                        <input type="text" name="codigo" id="nombre-codigo" value="4546" disabled/>
+                        <input type="text" name="codigo" id="nombre-codigo" value="4546" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Nombres</p>
-                        <input type="text" name="nombres" id="nombres" value="Jose Manuel" disabled/>
+                        <input type="text" name="nombres" id="nombres" value="Jose Manuel" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Apellido paterno</p>
-                        <input type="text" name="apellido_pa" id="apellido_pa" value="Gonzales" disabled/>
+                        <input type="text" name="apellido_pa" id="apellido_pa" value="Gonzales" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Apellido materno</p>
-                        <input type="text" name="apellido_ma" id="apellido_ma" value="Menendez" disabled/>
+                        <input type="text" name="apellido_ma" id="apellido_ma" value="Menendez" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Nacionalidad</p>
@@ -136,12 +136,12 @@
                             <option value="Argentina">Argentina</option>
                             <option value="Chile">Chile</option>
                             <option value="Mexicana">Mexicana</option>
-                            
+
                         </select>
                     </div>
                     <div class="contentInput">
                         <p>Lugar de nacimiento</p>
-                        <input type="text" name="lugar_nac" id="lugar_nac" value="Lima" disabled/>
+                        <input type="text" name="lugar_nac" id="lugar_nac" value="Lima" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Tipo de documento</p>
@@ -153,11 +153,11 @@
                     </div>
                     <div class="contentInput">
                         <p>Nro de documento de identidad</p>
-                        <input type="number" name="nro_doc" id="nro_doc" value="29422633" disabled/>
+                        <input type="number" name="nro_doc" id="nro_doc" value="29422633" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Estado civil</p>
-                        <input type="text" name="edo_civil" id="edo_civil" value="Casado(a)" disabled/>
+                        <input type="text" name="edo_civil" id="edo_civil" value="Casado(a)" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Genero</p>
@@ -168,19 +168,31 @@
                     </div>
                     <div class="contentInput">
                         <p>Edad</p>
-                        <input type="number" name="edad" id="edad" value="53" disabled/>
+                        <input type="number" name="edad" id="edad" value="53" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Fecha de nacimiento</p>
-                        <input type="date" name="fech_nac" id="fech_nac" disabled/>
+                        <input type="date" name="fech_nac" id="fech_nac" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Fecha de ingreso</p>
-                        <input type="date" name="fech_ingreso" id="fech_ingreso" disabled/>
+                        <input type="date" name="fech_ingreso" id="fech_ingreso" disabled />
                     </div>
                     <div class="contentInput">
                         <p>Nro Solicitud</p>
-                        <input type="text" name="nro_solicitud" id="nro_solicitud" value="XXXXX" disabled/>
+                        <input type="text" name="nro_solicitud" id="nro_solicitud" value="XXXXX" disabled />
+                    </div>
+                    <div class="contentInput">
+                        <p>Telofono fijo</p>
+                        <input type="number" name="tel_fijo" id="tel_fijo" value="980500900" disabled />
+                    </div>
+                    <div class="contentInput">
+                        <p>Telofono celular</p>
+                        <input type="text" name="tel_cel" id="tel_cel" value="Av Los Alamos 777" disabled />
+                    </div>
+                    <div class="contentInput">
+                        <p>Email</p>
+                        <input type="email" name="email" id="email" value="magdieljose@gmail.com" disabled />
                     </div>
                 </div>
                 <div class="btnResponsive">
@@ -235,23 +247,13 @@
                 <div class="cuerpo">
                     <div class="contentInput">
                         <p>Direccion</p>
-                        <input type="text" name="direccion" id="direccion" value="Av. Alejandro Velasco Astete 1231 dpto 204 urb..." disabled/>
+                        <input type="text" name="direccion" id="direccion"
+                            value="Av. Alejandro Velasco Astete 1231 dpto 204 urb..." disabled />
                     </div>
                     <div class="contentInput">
                         <p>Ubicacion</p>
-                        <input type="text" name="ubicacion" id="ubicacion" value="01140140 Peru/Lima/Lima/San Borja" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Telofono fijo</p>
-                        <input type="number" name="tel_fijo" id="tel_fijo" value="980500900" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Telofono celular</p>
-                        <input type="text" name="tel_cel" id="tel_cel" value="Av Los Alamos 777" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Email</p>
-                        <input type="email" name="email" id="email" value="magdieljose@gmail.com" disabled/>
+                        <input type="text" name="ubicacion" id="ubicacion" value="01140140 Peru/Lima/Lima/San Borja"
+                            disabled />
                     </div>
                 </div>
                 <div class="btnResponsive">
@@ -268,12 +270,23 @@
             <div class="itemInfo">
                 <div class="cabecera">
                     <div class="part1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20" height="20" fill="#F3FCFF" />
+                            <mask id="path-1-outside-1_596_210" maskUnits="userSpaceOnUse" x="0.724609" y="1.08398"
+                                width="18" height="18" fill="black">
+                                <rect fill="white" x="0.724609" y="1.08398" width="18" height="18" />
+                                <path
+                                    d="M18.2656 8.439C18.2817 8.33059 18.2762 8.22007 18.2495 8.11379C18.2228 8.0075 18.1753 7.90753 18.1099 7.81959C18.0445 7.73166 17.9624 7.65749 17.8683 7.60134C17.7742 7.54518 17.6699 7.50814 17.5615 7.49233L12.8523 6.804L10.7473 2.51483C10.6713 2.38373 10.5622 2.27491 10.4309 2.19928C10.2996 2.12366 10.1507 2.0839 9.99916 2.08398C9.84763 2.08407 9.69878 2.124 9.56755 2.19976C9.43632 2.27553 9.32732 2.38448 9.25148 2.51567L7.14732 6.804L2.43815 7.49233C2.28444 7.51466 2.14002 7.5795 2.02121 7.67955C1.90239 7.77959 1.8139 7.91085 1.76572 8.05851C1.71753 8.20618 1.71158 8.36437 1.74853 8.51524C1.78548 8.6661 1.86385 8.80364 1.97482 8.91233L5.38565 12.2565L4.58065 16.9765C4.5552 17.1297 4.57298 17.287 4.63199 17.4306C4.691 17.5742 4.78889 17.6986 4.91468 17.7897C5.04047 17.8807 5.18916 17.9349 5.34405 17.9461C5.49894 17.9574 5.65389 17.9252 5.79148 17.8532L9.99982 15.6282L14.2073 17.8523C14.3447 17.9251 14.4998 17.9579 14.6549 17.9472C14.81 17.9364 14.9591 17.8825 15.0851 17.7914C15.2112 17.7004 15.3093 17.5759 15.3683 17.432C15.4273 17.2882 15.4448 17.1307 15.419 16.9773L14.614 12.2565L18.0257 8.9115C18.1549 8.78431 18.2392 8.61842 18.2656 8.439ZM13.8748 11.814C13.8268 11.8611 13.7908 11.9191 13.7701 11.9831C13.7493 12.0471 13.7444 12.1152 13.7556 12.1815L14.5973 17.1157L10.194 14.7882C10.1341 14.7566 10.0675 14.7402 9.99982 14.7402C9.93216 14.7402 9.86551 14.7566 9.80565 14.7882L5.40232 17.1165L6.24398 12.1815C6.25527 12.1152 6.25032 12.0471 6.22957 11.9831C6.20881 11.9191 6.17287 11.8611 6.12482 11.814L2.55815 8.3165L7.48482 7.5965C7.55187 7.58673 7.61553 7.56075 7.67027 7.52081C7.72502 7.48088 7.7692 7.4282 7.79898 7.36733L9.99982 2.88317L12.1998 7.36817C12.2297 7.42914 12.274 7.48189 12.3289 7.52183C12.3838 7.56177 12.4476 7.58769 12.5148 7.59733L17.4423 8.3165L13.8748 11.814Z" />
+                            </mask>
                             <path
-                                d="M20 6C20.58 6 21.05 6.2 21.42 6.59C21.8 7 22 7.45 22 8V19C22 19.55 21.8 20 21.42 20.41C21.05 20.8 20.58 21 20 21H4C3.42 21 2.95 20.8 2.58 20.41C2.2 20 2 19.55 2 19V8C2 7.45 2.2 7 2.58 6.59C2.95 6.2 3.42 6 4 6H8V4C8 3.42 8.2 2.95 8.58 2.58C8.95 2.2 9.42 2 10 2H14C14.58 2 15.05 2.2 15.42 2.58C15.8 2.95 16 3.42 16 4V6H20ZM4 8V19H20V8H4ZM14 6V4H10V6H14Z"
+                                d="M18.2656 8.439C18.2817 8.33059 18.2762 8.22007 18.2495 8.11379C18.2228 8.0075 18.1753 7.90753 18.1099 7.81959C18.0445 7.73166 17.9624 7.65749 17.8683 7.60134C17.7742 7.54518 17.6699 7.50814 17.5615 7.49233L12.8523 6.804L10.7473 2.51483C10.6713 2.38373 10.5622 2.27491 10.4309 2.19928C10.2996 2.12366 10.1507 2.0839 9.99916 2.08398C9.84763 2.08407 9.69878 2.124 9.56755 2.19976C9.43632 2.27553 9.32732 2.38448 9.25148 2.51567L7.14732 6.804L2.43815 7.49233C2.28444 7.51466 2.14002 7.5795 2.02121 7.67955C1.90239 7.77959 1.8139 7.91085 1.76572 8.05851C1.71753 8.20618 1.71158 8.36437 1.74853 8.51524C1.78548 8.6661 1.86385 8.80364 1.97482 8.91233L5.38565 12.2565L4.58065 16.9765C4.5552 17.1297 4.57298 17.287 4.63199 17.4306C4.691 17.5742 4.78889 17.6986 4.91468 17.7897C5.04047 17.8807 5.18916 17.9349 5.34405 17.9461C5.49894 17.9574 5.65389 17.9252 5.79148 17.8532L9.99982 15.6282L14.2073 17.8523C14.3447 17.9251 14.4998 17.9579 14.6549 17.9472C14.81 17.9364 14.9591 17.8825 15.0851 17.7914C15.2112 17.7004 15.3093 17.5759 15.3683 17.432C15.4273 17.2882 15.4448 17.1307 15.419 16.9773L14.614 12.2565L18.0257 8.9115C18.1549 8.78431 18.2392 8.61842 18.2656 8.439ZM13.8748 11.814C13.8268 11.8611 13.7908 11.9191 13.7701 11.9831C13.7493 12.0471 13.7444 12.1152 13.7556 12.1815L14.5973 17.1157L10.194 14.7882C10.1341 14.7566 10.0675 14.7402 9.99982 14.7402C9.93216 14.7402 9.86551 14.7566 9.80565 14.7882L5.40232 17.1165L6.24398 12.1815C6.25527 12.1152 6.25032 12.0471 6.22957 11.9831C6.20881 11.9191 6.17287 11.8611 6.12482 11.814L2.55815 8.3165L7.48482 7.5965C7.55187 7.58673 7.61553 7.56075 7.67027 7.52081C7.72502 7.48088 7.7692 7.4282 7.79898 7.36733L9.99982 2.88317L12.1998 7.36817C12.2297 7.42914 12.274 7.48189 12.3289 7.52183C12.3838 7.56177 12.4476 7.58769 12.5148 7.59733L17.4423 8.3165L13.8748 11.814Z"
                                 fill="#003C3E" />
+                            <path
+                                d="M18.2656 8.439C18.2817 8.33059 18.2762 8.22007 18.2495 8.11379C18.2228 8.0075 18.1753 7.90753 18.1099 7.81959C18.0445 7.73166 17.9624 7.65749 17.8683 7.60134C17.7742 7.54518 17.6699 7.50814 17.5615 7.49233L12.8523 6.804L10.7473 2.51483C10.6713 2.38373 10.5622 2.27491 10.4309 2.19928C10.2996 2.12366 10.1507 2.0839 9.99916 2.08398C9.84763 2.08407 9.69878 2.124 9.56755 2.19976C9.43632 2.27553 9.32732 2.38448 9.25148 2.51567L7.14732 6.804L2.43815 7.49233C2.28444 7.51466 2.14002 7.5795 2.02121 7.67955C1.90239 7.77959 1.8139 7.91085 1.76572 8.05851C1.71753 8.20618 1.71158 8.36437 1.74853 8.51524C1.78548 8.6661 1.86385 8.80364 1.97482 8.91233L5.38565 12.2565L4.58065 16.9765C4.5552 17.1297 4.57298 17.287 4.63199 17.4306C4.691 17.5742 4.78889 17.6986 4.91468 17.7897C5.04047 17.8807 5.18916 17.9349 5.34405 17.9461C5.49894 17.9574 5.65389 17.9252 5.79148 17.8532L9.99982 15.6282L14.2073 17.8523C14.3447 17.9251 14.4998 17.9579 14.6549 17.9472C14.81 17.9364 14.9591 17.8825 15.0851 17.7914C15.2112 17.7004 15.3093 17.5759 15.3683 17.432C15.4273 17.2882 15.4448 17.1307 15.419 16.9773L14.614 12.2565L18.0257 8.9115C18.1549 8.78431 18.2392 8.61842 18.2656 8.439ZM13.8748 11.814C13.8268 11.8611 13.7908 11.9191 13.7701 11.9831C13.7493 12.0471 13.7444 12.1152 13.7556 12.1815L14.5973 17.1157L10.194 14.7882C10.1341 14.7566 10.0675 14.7402 9.99982 14.7402C9.93216 14.7402 9.86551 14.7566 9.80565 14.7882L5.40232 17.1165L6.24398 12.1815C6.25527 12.1152 6.25032 12.0471 6.22957 11.9831C6.20881 11.9191 6.17287 11.8611 6.12482 11.814L2.55815 8.3165L7.48482 7.5965C7.55187 7.58673 7.61553 7.56075 7.67027 7.52081C7.72502 7.48088 7.7692 7.4282 7.79898 7.36733L9.99982 2.88317L12.1998 7.36817C12.2297 7.42914 12.274 7.48189 12.3289 7.52183C12.3838 7.56177 12.4476 7.58769 12.5148 7.59733L17.4423 8.3165L13.8748 11.814Z"
+                                stroke="#003C3E" stroke-width="0.5" mask="url(#path-1-outside-1_596_210)" />
                         </svg>
-                        Centro laboral
+
+                        Preferencias
                     </div>
                     <div class="part2">
                         <button class="editar">
@@ -305,36 +318,23 @@
                 </div>
                 <div class="cuerpo">
                     <div class="contentInput">
-                        <p>Centro de estudio</p>
-                        <input type="text" name="centro_estudio" id="centro_estudio" value="Los Olivos" disabled/>
+                        <p>Deportivas</p>
+                        <input type="text" name="centro_estudio" id="centro_estudio" value="Fútbol, Natación, Tenis"
+                            disabled />
                     </div>
                     <div class="contentInput">
-                        <p>Especialidad</p>
-                        <input type="text" name="especialidad" id="especialidad" value="Lima" disabled/>
+                        <p>Actividades Recreativas</p>
+                        <input type="text" name="especialidad" id="especialidad" value="Zumba, Full Body, Stretching"
+                            disabled />
                     </div>
                     <div class="contentInput">
-                        <p>Profesion</p>
-                        <input type="text" name="profesion" id="profesion" value="Lima" disabled/>
+                        <p>Actividades Culturales</p>
+                        <input type="text" name="profesion" id="profesion"
+                            value="Exposiciones de arte, Cine, Fotografía, Gastron..." disabled />
                     </div>
                     <div class="contentInput">
-                        <p>Telefono empresa</p>
-                        <input type="number" name="telefono_empresa" id="telefono_empresa" value="54984954" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Centro laboral</p>
-                        <input type="text" name="centro_laboral" id="centro_laboral" value="Lima" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Fax empresa</p>
-                        <input type="text" name="fax_empresa" id="fax_empresa" value="Av Los Alamos 777" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Cargo laboral</p>
-                        <input type="text" name="cargo_laboral" id="cargo_laboral" value="Lima" disabled/>
-                    </div>
-                    <div class="contentInput">
-                        <p>Dir. empresa</p>
-                        <input type="text" name="dir_empresa" id="dir_empresa" value="Av Los Alamos 777" disabled/>
+                        <p>Relajación y Bienestar</p>
+                        <input type="text" name="especialidad" id="especialidad" value="Spa, Sauna, Piscina" disabled />
                     </div>
                 </div>
                 <div class="btnResponsive">
@@ -362,7 +362,7 @@
         </main>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // 1) Obtener el user_id desde sessionStorage
             const userId = "{{ Auth::user()->id }}";
             if (!userId) {
@@ -382,19 +382,19 @@
                     "Authorization": `Bearer ${token}`
                 }
             })
-            .then(response => response.json())
-            .then(json => {
-                if (json.type === 'success') {
-                    const user = json.data;
-                    // (Opcional) guardar en localStorage para comparaciones al editar
-                    localStorage.setItem('datosUserRinconda', JSON.stringify(user));
-                    // 3) Poblar campos
-                    poblarCamposUsuario(user);
-                } else {
-                    console.error("Error en la respuesta de la API:", json.message);
-                }
-            })
-            .catch(error => console.error("Error al consumir la API:", error));
+                .then(response => response.json())
+                .then(json => {
+                    if (json.type === 'success') {
+                        const user = json.data;
+                        // (Opcional) guardar en localStorage para comparaciones al editar
+                        localStorage.setItem('datosUserRinconda', JSON.stringify(user));
+                        // 3) Poblar campos
+                        poblarCamposUsuario(user);
+                    } else {
+                        console.error("Error en la respuesta de la API:", json.message);
+                    }
+                })
+                .catch(error => console.error("Error al consumir la API:", error));
 
             // -------------------------------------------------------------------
             // Funcion para poblar la vista con los datos devueltos por la API
@@ -403,7 +403,7 @@
                 // 1. Campos principales
                 if (user.name) {
                     const nombreCompleto = document.getElementById('nombre-completo');
-                    const nombreCodigo   = document.getElementById('nombre-codigo');
+                    const nombreCodigo = document.getElementById('nombre-codigo');
                     if (nombreCompleto) nombreCompleto.textContent = user.name;
                     if (nombreCodigo && user.detail && user.detail.codigo) {
                         nombreCodigo.innerHTML = `${user.name}<br />NÃ‚Âº ${user.detail.codigo}`;
@@ -417,25 +417,25 @@
 
                 // 2. Si hay campo foto
                 if (user.foto) {
-                    const fotoPerfil  = document.getElementById('foto-perfil');
+                    const fotoPerfil = document.getElementById('foto-perfil');
                     const fotoPerfil2 = document.getElementById('foto-perfil2');
-                    if (fotoPerfil)  fotoPerfil.src  = `/fotos/${user.foto}`;
+                    if (fotoPerfil) fotoPerfil.src = `/fotos/${user.foto}`;
                     if (fotoPerfil2) fotoPerfil2.src = `/fotos/${user.foto}`;
                 }
 
                 if (user.tipo_doc) {
-                    const tipo_doc  = document.getElementById('tipo_doc');
+                    const tipo_doc = document.getElementById('tipo_doc');
                     if (tipo_doc) {
                         tipo_doc.value = user.tipo_doc || '';
                     }
                 }
 
                 if (user.nro_doc) {
-                    const nro_doc  = document.getElementById('nro_doc');
+                    const nro_doc = document.getElementById('nro_doc');
                     if (nro_doc) {
                         nro_doc.value = user.nro_doc || '';
                     }
-                
+
                 }
 
                 // 3. Campos detail
@@ -502,61 +502,61 @@
 
                 // Campos top-level
                 const emailField = document.getElementById('email');
-                const newEmail   = emailField ? emailField.value.trim() : '';
+                const newEmail = emailField ? emailField.value.trim() : '';
 
                 // Campos detail
-                const newNombres       = document.getElementById('nombres')?.value.trim()       || '';
-                const newApellidoPa    = document.getElementById('apellido_pa')?.value.trim()   || '';
-                const newApellidoMa    = document.getElementById('apellido_ma')?.value.trim()   || '';
-                const newNacionalidad  = document.getElementById('nacionalidad')?.value         || '';
-                const newLugarNac      = document.getElementById('lugar_nac')?.value.trim()     || '';
-                const newEdoCivil      = document.getElementById('edo_civil')?.value.trim()     || '';
-                const newSexo          = document.getElementById('sexo')?.value                || '';
-                const newFechNac       = document.getElementById('fech_nac')?.value             || '';
-                const newEdad          = document.getElementById('edad')?.value.trim()          || '';
-                const newFechIngreso   = document.getElementById('fech_ingreso')?.value         || '';
-                const newNroSolicitud  = document.getElementById('nro_solicitud')?.value.trim() || '';
-                const newDireccion     = document.getElementById('direccion')?.value.trim()     || '';
-                const newUbicacion     = document.getElementById('ubicacion')?.value.trim()     || '';
-                const newTelFijo       = document.getElementById('tel_fijo')?.value.trim()      || '';
-                const newTelCel        = document.getElementById('tel_cel')?.value.trim()       || '';
-                const newCentroEstudio = document.getElementById('centro_estudio')?.value.trim()|| '';
-                const newEspecialidad  = document.getElementById('especialidad')?.value.trim()  || '';
-                const newProfesion     = document.getElementById('profesion')?.value.trim()     || '';
-                const newTelEmpresa    = document.getElementById('telefono_empresa')?.value.trim() || '';
-                const newCentroLaboral = document.getElementById('centro_laboral')?.value.trim()   || '';
-                const newFaxEmpresa    = document.getElementById('fax_empresa')?.value.trim()       || '';
-                const newCargoLaboral  = document.getElementById('cargo_laboral')?.value.trim()    || '';
-                const newDirEmpresa    = document.getElementById('dir_empresa')?.value.trim()      || '';
+                const newNombres = document.getElementById('nombres')?.value.trim() || '';
+                const newApellidoPa = document.getElementById('apellido_pa')?.value.trim() || '';
+                const newApellidoMa = document.getElementById('apellido_ma')?.value.trim() || '';
+                const newNacionalidad = document.getElementById('nacionalidad')?.value || '';
+                const newLugarNac = document.getElementById('lugar_nac')?.value.trim() || '';
+                const newEdoCivil = document.getElementById('edo_civil')?.value.trim() || '';
+                const newSexo = document.getElementById('sexo')?.value || '';
+                const newFechNac = document.getElementById('fech_nac')?.value || '';
+                const newEdad = document.getElementById('edad')?.value.trim() || '';
+                const newFechIngreso = document.getElementById('fech_ingreso')?.value || '';
+                const newNroSolicitud = document.getElementById('nro_solicitud')?.value.trim() || '';
+                const newDireccion = document.getElementById('direccion')?.value.trim() || '';
+                const newUbicacion = document.getElementById('ubicacion')?.value.trim() || '';
+                const newTelFijo = document.getElementById('tel_fijo')?.value.trim() || '';
+                const newTelCel = document.getElementById('tel_cel')?.value.trim() || '';
+                const newCentroEstudio = document.getElementById('centro_estudio')?.value.trim() || '';
+                const newEspecialidad = document.getElementById('especialidad')?.value.trim() || '';
+                const newProfesion = document.getElementById('profesion')?.value.trim() || '';
+                const newTelEmpresa = document.getElementById('telefono_empresa')?.value.trim() || '';
+                const newCentroLaboral = document.getElementById('centro_laboral')?.value.trim() || '';
+                const newFaxEmpresa = document.getElementById('fax_empresa')?.value.trim() || '';
+                const newCargoLaboral = document.getElementById('cargo_laboral')?.value.trim() || '';
+                const newDirEmpresa = document.getElementById('dir_empresa')?.value.trim() || '';
 
                 // Payload para PUT
                 const updatedData = {
                     email: newEmail,
                     detail: {
-                        nombres:        newNombres,
-                        apellido_pa:    newApellidoPa,
-                        apellido_ma:    newApellidoMa,
-                        nacionalidad:   newNacionalidad,
-                        lugar_nac:      newLugarNac,
-                        edo_civil:      newEdoCivil,
-                        sexo:           newSexo,
-                        fech_nac:       newFechNac,
-                        edad:           newEdad || null,
-                        fech_ingreso:   newFechIngreso || null,
-                        nro_solicitud:  newNroSolicitud || null,
-                        direccion:      newDireccion,
-                        ubicacion:      newUbicacion,
-                        tel_fijo:       newTelFijo,
-                        tel_cel:        newTelCel,
-                        email:          newEmail, // si tu API requiere email dentro de 'detail'
+                        nombres: newNombres,
+                        apellido_pa: newApellidoPa,
+                        apellido_ma: newApellidoMa,
+                        nacionalidad: newNacionalidad,
+                        lugar_nac: newLugarNac,
+                        edo_civil: newEdoCivil,
+                        sexo: newSexo,
+                        fech_nac: newFechNac,
+                        edad: newEdad || null,
+                        fech_ingreso: newFechIngreso || null,
+                        nro_solicitud: newNroSolicitud || null,
+                        direccion: newDireccion,
+                        ubicacion: newUbicacion,
+                        tel_fijo: newTelFijo,
+                        tel_cel: newTelCel,
+                        email: newEmail, // si tu API requiere email dentro de 'detail'
                         centro_estudio: newCentroEstudio,
-                        especialidad:   newEspecialidad,
-                        profesion:      newProfesion,
+                        especialidad: newEspecialidad,
+                        profesion: newProfesion,
                         telefono_empresa: newTelEmpresa,
-                        centro_laboral:  newCentroLaboral,
-                        fax_empresa:     newFaxEmpresa,
-                        cargo_laboral:   newCargoLaboral,
-                        dir_empresa:     newDirEmpresa
+                        centro_laboral: newCentroLaboral,
+                        fax_empresa: newFaxEmpresa,
+                        cargo_laboral: newCargoLaboral,
+                        dir_empresa: newDirEmpresa
                     }
                 };
 
@@ -589,28 +589,28 @@
                 const userID = oldUser.id;
                 fetch(`{{ config('app.url') }}/api/users/${userID}/limited`, {
                     method: 'PUT',
-                    headers: { 
-                        'Content-Type': 'application/json', 
+                    headers: {
+                        'Content-Type': 'application/json',
                         "Authorization": `Bearer ${token}`
                     },
                     body: JSON.stringify(updatedData)
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.type === 'success') {
-                        // Ãƒâ€°xito: recargamos o volvemos a pedir datos
-                        location.reload();
-                    } else {
-                        alert('Error al actualizar: ' + (data.message || 'Desconocido'));
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert('Error en la peticion: ' + err);
-                });
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.type === 'success') {
+                            // Ãƒâ€°xito: recargamos o volvemos a pedir datos
+                            location.reload();
+                        } else {
+                            alert('Error al actualizar: ' + (data.message || 'Desconocido'));
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert('Error en la peticion: ' + err);
+                    });
             }
         });
-</script>
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js"></script>

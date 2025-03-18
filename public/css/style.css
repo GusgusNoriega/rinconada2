@@ -104,6 +104,15 @@ header .navegacion {
 header .navegacion .item .cabecera {
     cursor: pointer;
 }
+header .navegacion .item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+}
 header .navegacion .item .cabecera a {
     display: flex;
     align-items: center;
@@ -265,6 +274,7 @@ main .cabecera .menuperfil .part2 .menuavatar .submenu {
     position: absolute;
     right: 0;
     top: 0px;
+    z-index: 999;
 }
 main .cabecera .menuperfil .part2 .menuavatar .content {
     width: 215px;
@@ -1081,7 +1091,7 @@ table {
 }
 
 .contentEnlaces .item {
-    max-width: 185px;
+    max-width: 160px;
     width: 100%;
     flex-shrink: 0;
 }
