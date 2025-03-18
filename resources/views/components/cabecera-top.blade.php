@@ -24,7 +24,9 @@
         </div>
         <div class="part2">
             <div class="avatar">
-                <img id="foto-perfil" src="imgs/avatar.png" alt="" />
+                @if(Auth::check())
+                    <img id="foto-perfil" src="https://sistemarinconada.nerdstudiolab.com/fotos/{{ Auth::user()->foto ?? 'avatar.png' }}" alt="Foto de perfil" />
+                @endif
             </div>
             <div class="menuavatar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
