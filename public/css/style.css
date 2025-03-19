@@ -14,7 +14,9 @@
     font-family: "SFPRODISPLAY-Medium";
     src: url("../fuentes/SFPRODISPLAYMEDIUM.OTF");
 }
-body {
+body,
+ul,
+li {
     margin: 0;
     padding: 0;
 }
