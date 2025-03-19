@@ -147,7 +147,7 @@ header .navegacion .item .cabecera.submenu a {
     pointer-events: none;
 }
 header .navegacion .item ul {
-    border-left: 2px solid #ffffff7a;
+    border-left: 2px solid #fff;
     margin-left: 10px;
     padding-left: 10px;
     display: flex;
