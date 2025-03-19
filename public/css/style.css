@@ -14,9 +14,13 @@
     font-family: "SFPRODISPLAY-Medium";
     src: url("../fuentes/SFPRODISPLAYMEDIUM.OTF");
 }
-* {
+body,
+ul,
+li {
     margin: 0;
     padding: 0;
+}
+* {
     scroll-behavior: smooth;
     box-sizing: border-box;
     --fuente-vietnam: "Be Vietnam Pro", sans-serif;
@@ -143,7 +147,7 @@ header .navegacion .item .cabecera.submenu a {
     pointer-events: none;
 }
 header .navegacion .item ul {
-    border-left: 2px solid #ffffff7a;
+    border-left: 2px solid #fff;
     margin-left: 10px;
     padding-left: 10px;
     display: flex;
