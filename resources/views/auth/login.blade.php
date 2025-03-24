@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Rinconada</title>
     @vite('resources/css/app.css')
-    <link rel="stylesheet" href="css/style-login.css" />
+    @vite('resources/css/styles-login.css')
 </head>
 
 <body>
-    <main>
+    <div>
         <div class="contentLogin">
             <div class="part2">
                 <div class="part1">
@@ -118,7 +118,7 @@
             });
 
         </script>
-    </main>
+    </div>
 </body>
 
 </html>

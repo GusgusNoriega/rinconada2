@@ -1,31 +1,5 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@font-face {
-    font-family: "SFPRODISPLAY";
-    src: url("../fuentes/SFPRODISPLAYBOLD.OTF");
-}
-
-@font-face {
-    font-family: "SFPRODISPLAY-Regular";
-    src: url("../fuentes/SFPRODISPLAYREGULAR.OTF");
-}
-
-@font-face {
-    font-family: "SFPRODISPLAY-Medium";
-    src: url("../fuentes/SFPRODISPLAYMEDIUM.OTF");
-}
-body {
-    margin: 0;
-    padding: 0;
-}
-* {
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    --fuente-vietnam: "Be Vietnam Pro", sans-serif;
-    --fuente-manrope: "Manrope", sans-serif;
-    --color-azul: #003acc;
-    --color-naranja: #ff5708;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 a {
     text-decoration: none;
@@ -82,20 +56,20 @@ button {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: calc(100% - 114px);
+    height: calc(100% - 124px);
     transform: translateY(-30px);
 }
 .contentLogin .part2 .formulario h1 {
     color: #003c3e;
     text-align: center;
-    font-family: SFPRODISPLAY;
+    font-family: Inter, sans-serif;
     font-size: 36px;
     font-weight: 700;
 }
 .contentLogin .part2 .formulario p {
     color: rgba(0, 60, 62, 0.5);
     text-align: center;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 34px;
@@ -116,7 +90,7 @@ button {
 .contentLogin .part2 .formulario form label p {
     color: rgba(0, 60, 62, 0.5);
     text-align: start;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
@@ -129,7 +103,7 @@ button {
     border: 1.5px solid #003c3e;
     height: 56px;
     color: #003c3e;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 16px;
     font-weight: 500;
     padding: 0 11px;
@@ -174,7 +148,7 @@ button {
 }
 .contentLogin .part2 .formulario form .mensajeError p {
     color: #c53030;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-align: start;
@@ -283,7 +257,7 @@ button {
     }
     .contentLogin .part1 h2 {
         color: #fff;
-        font-family: SFPRODISPLAY;
+        font-family: Inter, sans-serif;
         font-size: 28px;
         font-weight: 700;
         margin-top: 20px;
@@ -293,7 +267,7 @@ button {
     .contentLogin .part1 p {
         color: #fff;
         text-align: center;
-        font-family: SFPRODISPLAY-Regular;
+        font-family: Lato, sans-serif;
         font-size: 16px;
         font-weight: 500;
     }
@@ -358,7 +332,7 @@ button {
 
 .modalContrasena .content h3 {
     color: #003c3e;
-    font-family: SFPRODISPLAY;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -373,7 +347,7 @@ button {
 
 .modalContrasena .content form p {
     color: #003c3e;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 18px;
     font-weight: 400;
     opacity: 0.5;
@@ -383,7 +357,7 @@ button {
 
 .modalContrasena .content form input {
     width: 100%;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 18px;
     font-weight: 400;
     border-radius: 8px;
@@ -397,7 +371,7 @@ button {
 .modalContrasena .content form button {
     color: #fff;
     text-align: center;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 16px;
     font-weight: 500;
     border-radius: 8px;
@@ -491,7 +465,7 @@ button {
 .modalPopup .content p {
     color: #003c3e;
     text-align: center;
-    font-family: SFPRODISPLAY;
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-weight: 700;
     margin-top: 8px;
@@ -500,7 +474,7 @@ button {
 .modalPopup .content span {
     color: #003c3e;
     text-align: center;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 18px;
     font-weight: 400;
     display: block;
@@ -511,7 +485,7 @@ button {
 .modalPopup .content a {
     color: #fff;
     text-align: center;
-    font-family: SFPRODISPLAY-Regular;
+    font-family: Lato, sans-serif;
     font-size: 16px;
     font-weight: 500;
     border-radius: 5px;

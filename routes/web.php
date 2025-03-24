@@ -78,6 +78,29 @@ Route::get('/parrillas', function () {
 })->name('parrillas');
 
 
+Route::prefix('reservas')->group(function () {
+    Route::prefix('parrillas')->group(function () {
+        Route::get('/', function () {
+            return view('reservas.parrillas.index');
+        })->name('reservas.parrillas');
+
+        Route::get('agregar-invitados', function () {
+            return view('reservas.parrillas.agregar-invitados');
+        })->name('reservas.parrillas.agregar-invitados');
+    });
+
+    Route::prefix('spa')->group(function () {
+        Route::get('/', function () {
+            return view('reservas.spa.index');
+        })->name('reservas.spa');
+    });
+
+});
+
+
+
+
+
 //Route::get('/cuenta', function () { return view('cuentas'); })->name('cuenta');
 Route::get('/cuenta', [PaymentController::class, 'showPaymentForm'])->name('cuenta');
 

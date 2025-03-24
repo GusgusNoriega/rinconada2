@@ -28,7 +28,7 @@
       </div>
       </div>
     <div>
-    <button class="btn-action">Nueva Reserva</button>
+    <button class="btn-action flex items-center gap-2">Nueva Reserva</button>
     </div>
   </div>
   <div class="bg-[#003C3E] text-white rounded-lg overflow-hidden">
@@ -45,9 +45,9 @@
       <div class="font-medium">El Mirador</div>
       <div>Parrilla 8</div>
       <div>
-      <button
+      <a href="{{ route('reservas.parrillas.agregar-invitados') }}"
         class="border border-[#162968] text-[#162968] bg-[#C8E6FF] px-3 py-1 rounded-[8px] text-sm hover:bg-[#162968] hover:text-white duration-300 transition-colors ease-in-out">Agregar
-        invitados</button>
+        invitados</a>
       </div>
     </div>
     <div class="grid grid-cols-4 p-3 place-items-center text-[#003C3E] text-[14px]">

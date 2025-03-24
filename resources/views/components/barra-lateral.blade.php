@@ -7,7 +7,7 @@
     </div>
     <div class="part1">
         <div class="logo">
-            <a href="{{ route('inicio') }}"><img src="imgs/logo_blanco.png" alt="" /></a>
+            <a href="{{ route('inicio') }}"><img src="../imgs/logo_blanco.png" alt="" /></a>
             <p class="nombre">
                 Jose Gonzales <br />
                 Nro 4546
@@ -136,8 +136,8 @@
                         Reservas</a>
                 </div>
                 <ul>
-                    <li class="active"><a href="{{ route('parrillas') }}">Parrillas</a></li>
-                    <li class="active"><a href="{{ route('spa') }}">Spa</a></li>
+                    <li class="active"><a href="{{ route('reservas.parrillas') }}">Parrillas</a></li>
+                    <li class="active"><a href="{{ route('reservas.spa') }}">Spa</a></li>
                 </ul>
             </div>
 
