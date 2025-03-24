@@ -69,6 +69,13 @@ Route::get('/familiares-registrados', function () {
     return view('familiares-registrados'); // Nombre de la vista
 })->name('familiares-registrados');
 
+Route::get('/spa', function () {
+    return view('spa');
+})->name('spa');
+
+Route::get('/parrillas', function () {
+    return view('parrillas');
+})->name('parrillas');
 
 
 //Route::get('/cuenta', function () { return view('cuentas'); })->name('cuenta');
