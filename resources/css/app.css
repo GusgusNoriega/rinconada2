@@ -2,6 +2,23 @@
 @source "../views";
 
 /*btn*/
+.btn-action {
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #78b548;
+    color: #fff;
+    text-align: center;
+    font-family: SFPRODISPLAY-Medium;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+.btn-action:hover {
+    background: #5e8c37;
+}
+
 .btn {
     border-radius: 0.5rem;
     padding: 1rem;
