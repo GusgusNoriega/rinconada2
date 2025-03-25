@@ -237,7 +237,7 @@
                 </div>
                 <div class="text-center"><span>74992892</span></div>
                 <div class="text-center"><span>28 años</span></div>
-                <div class="text-[#3A6816] font-semibold text-center">S/. 30 PEN</div>
+                <div class="text-[#3A6816] font-semibold text-center">S/. 0 PEN</div>
                 <div class="flex items-center">
                     <div class="mx-auto checkbox-wrapper-65 ">
                         <label for="invitado3" class="!flex items-center">
@@ -258,18 +258,10 @@
                 </div>
                 <div class="text-center"><span>74992892</span></div>
                 <div class="text-center"><span>28 años</span></div>
-                <div class="text-[#3A6816] font-semibold text-center">S/. 0 PEN</div>
-                <div class="flex items-center">
-                    <div class="mx-auto checkbox-wrapper-65 ">
-                        <label for="invitado4" class="!flex items-center">
-                            <input id="invitado4" type="checkbox">
-                            <span class="cbx">
-                                <svg viewBox="0 0 12 11" height="11px" width="12px">
-                                    <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
-                                </svg>
-                            </span>
-                        </label>
-                    </div>
+                <div class="text-[#3A6816] font-semibold text-center">S/. 30 PEN</div>
+                <div class="flex items-center justify-center">
+                    <span
+                        class="border border-[#6A0707] text-[#6A0707] bg-[#F2A99F] p-1 rounded-[8px] text-sm">Pagado</span>
                 </div>
             </div>
             <div class="grid grid-cols-5 gap-8 p-4 px-8 items-center border-b text-[#003C3E]">
@@ -300,28 +292,181 @@
         <span class="text-[#78B548] text-[30px] font-bold">S/. 60PEN</span>
     </div>
     <div class="flex justify-end">
-        <button class="btn-action flex items-center gap-2">
+        <button id="popupPayBtn" class="btn-action flex items-center gap-2">
             Realizar pago
         </button>
     </div>
 
+    <!-- Popup -->
+    <div id="popupPay" class="hidden fixed inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-50">
+        <div class="bg-[#F3FCFF] p-16 rounded-[24px] shadow-lg w-[550px] relative">
+            <!-- Botón de Cerrar -->
+            <button id="closePopup" class="absolute top-4 right-4 text-gray-800 hover:text-gray-900">
+                ✕
+            </button>
+
+            <h2 class="text-center text-[#003C3E] font-bold text-xl mb-4">Resumen de reserva</h2>
+
+            <div class="space-y-3">
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center justify-between gap-3">
+                        <span>Invitados gratis disponibles</span>
+                        <input id="toggleValue" type="text" value="2"
+                            class="w-12 text-center border border-[#D2EAEE] rounded-full" readonly>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" id="toggleNames" class="hidden">
+                        <div class="w-10 h-5 bg-gray-300 rounded-full flex items-center p-1 transition-all duration-300"
+                            id="toggleSwitch">
+                            <div class="w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300"
+                                id="toggleCircle"></div>
+                        </div>
+                        <span class="text-sm text-gray-700">No usar</span>
+                    </label>
+                </div>
+
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center justify-between gap-3">
+                        <span>Total de invitados</span>
+                        <input type="text" value="8"
+                            class="w-12 text-center border border-[#D2EAEE] rounded-full" readonly>
+                    </div>
+                    <button id="toggleList" class="text-gray-700 text-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" class="rotate-180">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M18.7071 15.7071C18.3166 16.0976 17.6834 16.0976 17.2929 15.7071L12 10.4142L6.70711 15.7071C6.31658 16.0976 5.68342 16.0976 5.29289 15.7071C4.90237 15.3166 4.90237 14.6834 5.29289 14.2929L11.2929 8.29289C11.6834 7.90237 12.3166 7.90237 12.7071 8.29289L18.7071 14.2929C19.0976 14.6834 19.0976 15.3166 18.7071 15.7071Z"
+                                fill="#003C3E" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Lista de Nombres (Oculta por defecto) -->
+                <div id="nameList" class="hidden grid grid-cols-2 gap-2 border p-2 rounded-md max-h-32 overflow-y-auto">
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                    <span class="px-2 py-1 bg-white border rounded-md text-sm line-clamp-1">Juan Carlos Palomino
+                        Villar</span>
+                </div>
+
+                <div id="usarTogleDiv" class="hidden flex items-center justify-between mt-6 show-usar-togle">
+                    <div class="flex items-center w-fit gap-2 text-[#003C3E] text-[16px] ">
+                        Sub Total:
+                        <span class="text-[#78B548] text-[18px] font-bold">S/. 60 PEN</span>
+                    </div>
+                    <div class="flex items-center w-fit gap-2 text-[#003C3E] text-[16px] ">
+                        Descuento:
+                        <span class="text-[#E95151] text-[18px] font-bold">S/. 30 PEN</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center w-full gap-2 text-[#003C3E] text-[14px] my-6">
+                    Total:
+                    <span id="priceText" class="text-[#78B548] text-[30px] font-bold">S/. 30 PEN</span>
+                </div>
+
+                <div class="w-full flex justify-center">
+                    <button class="btn-action">
+                        Realizar pago total
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+
 
 @push('scripts')
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const toggleBtn = document.getElementById("toggleFiltros");
-            const popup = document.getElementById("popupFiltros");
+            // POPUP FILTROS
+            const toggleFiltros = document.getElementById("toggleFiltros");
+            const popupFiltros = document.getElementById("popupFiltros");
 
-            toggleBtn.addEventListener("click", function() {
-                popup.classList.toggle("hidden");
-            });
+            if (toggleFiltros && popupFiltros) {
+                toggleFiltros.addEventListener("click", function() {
+                    popupFiltros.classList.toggle("hidden");
+                });
 
-            document.addEventListener("click", function(event) {
-                if (!popup.contains(event.target) && !toggleBtn.contains(event.target)) {
-                    popup.classList.add("hidden");
-                }
-            });
+                document.addEventListener("click", function(event) {
+                    if (!popupFiltros.contains(event.target) && !toggleFiltros.contains(event.target)) {
+                        popupFiltros.classList.add("hidden");
+                    }
+                });
+            }
+
+            // POPUP PAGO
+            const popupPayBtn = document.getElementById("popupPayBtn");
+            const popupPay = document.getElementById("popupPay");
+            const closePopupPay = document.getElementById("closePopup");
+
+            if (popupPayBtn && popupPay && closePopupPay) {
+                popupPayBtn.addEventListener("click", function() {
+                    popupPay.classList.remove("hidden");
+                });
+
+                closePopupPay.addEventListener("click", function() {
+                    popupPay.classList.add("hidden");
+                });
+
+                document.addEventListener("click", function(event) {
+                    if (popupPay.contains(event.target)) return;
+                    if (popupPayBtn.contains(event.target)) return;
+                    popupPay.classList.add("hidden");
+                });
+            }
+
+            // TOGGLE LISTA DE NOMBRES
+            const toggleList = document.getElementById("toggleList");
+            const nameList = document.getElementById("nameList");
+
+            if (toggleList && nameList) {
+                toggleList.addEventListener("click", function() {
+                    nameList.classList.toggle("hidden");
+                    toggleList.classList.toggle("rotate-180");
+                });
+            }
+
+
+            // TOGGLE "NO USAR" (SWITCH)
+            const toggleSwitch = document.getElementById("toggleSwitch");
+            const toggleCircle = document.getElementById("toggleCircle");
+            const toggleNames = document.getElementById("toggleNames");
+            const usarTogleDiv = document.getElementById("usarTogleDiv");
+
+            if (toggleSwitch && toggleCircle) {
+                toggleSwitch.addEventListener("click", function() {
+                    toggleSwitch.classList.toggle("bg-gray-300");
+                    toggleSwitch.classList.toggle("bg-green-500");
+                    toggleCircle.classList.toggle("translate-x-5");
+                });
+            }
+
+
+            if (toggleNames && usarTogleDiv) {
+                toggleNames.addEventListener("change", function() {
+                    toggleValue.value = this.checked ? "0" : "2";
+                    priceText.textContent = this.checked ? "S/. 30 PEN" : "S/. 60 PEN";
+                    if (this.checked) {
+                        usarTogleDiv.classList.remove("hidden");
+                    } else {
+                        usarTogleDiv.classList.add("hidden");
+                    }
+                });
+            }
         });
     </script>
 @endpush
