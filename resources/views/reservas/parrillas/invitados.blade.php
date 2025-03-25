@@ -89,7 +89,6 @@
                     class="hidden absolute right-[5%] top-full mt-2 w-56 bg-white rounded-lg shadow-lg p-4 border border-gray-200 z-[99]">
                     <div class="absolute -top-2 right-4 w-4 h-4 bg-white rotate-45 border-l border-t border-gray-200"></div>
                     <div class="flex flex-col gap-3">
-
                         <div class="flex items-center">
                             <div class="checkbox-wrapper-65 ">
                                 <label for="socios" class="!flex items-center">

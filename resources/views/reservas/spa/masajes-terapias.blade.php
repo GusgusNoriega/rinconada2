@@ -35,25 +35,26 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-wrap gap-6 w-full items-center justify-center">
+    <div class="flex flex-wrap gap-6 w-full items-center">
 
         <div
             class="bg-white rounded-xl shadow-lg hover:shadow-xl px-10 py-11 text-center w-full transition-all group max-w-[275px]">
-            <h2 class="text-lg font-bold text-[#78B548]">Masajes y Terapias</h2>
+            <h2 class="text-lg font-bold text-[#78B548]">Masajes</h2>
             <div class="my-6 flex justify-center">
                 <img src="{{ asset('imgs/spa1.svg') }}" alt="Icono de masaje" class="h-[70px] w-auto">
             </div>
             <p class="text-[#003C3E] mb-6 text-[14px] min-h-[40px]">Ambiente acogedor para que te relajes.</p>
-            <a href="{{ route('reservas.spa.masajes-terapias') }}"
-                class="block bg-[#003C3E] text-white py-3 w-full rounded-full text-sm font-medium group-hover:bg-teal-700 transition">
+            <button
+                class="btn-reservar bg-[#003C3E] text-white py-3 w-full rounded-full text-sm font-medium group-hover:bg-teal-700 transition">
                 Reservar
-            </a>
+            </button>
         </div>
+
         <div
             class="bg-white rounded-xl shadow-lg hover:shadow-xl px-10 py-11 text-center w-full transition-all group max-w-[275px]">
-            <h2 class="text-lg font-bold text-[#78B548]">Cosmiatría</h2>
+            <h2 class="text-lg font-bold text-[#78B548]">Terapias</h2>
             <div class="my-6 flex justify-center">
-                <img src="{{ asset('imgs/spa2.svg') }}" alt="Icono de masaje" class="h-[70px] w-auto">
+                <img src="{{ asset('imgs/spa5.svg') }}" alt="Icono de masaje" class="h-[70px] w-auto">
             </div>
             <p class="text-[#003C3E] mb-6 text-[14px] min-h-[40px]">Un refugio para conectar con la naturaleza.</p>
             <button
@@ -61,66 +62,8 @@
                 Reservar
             </button>
         </div>
-        <div
-            class="bg-white rounded-xl shadow-lg hover:shadow-xl px-10 py-11 text-center w-full transition-all group max-w-[275px]">
-            <h2 class="text-lg font-bold text-[#78B548]">Sauna</h2>
-            <div class="my-6 flex justify-center">
-                <img src="{{ asset('imgs/spa3.svg') }}" alt="Icono de masaje" class="h-[70px] w-auto">
-            </div>
-            <p class="text-[#003C3E] mb-6 text-[14px] min-h-[40px]">Disfruta un espacio cálido y revitalizante.</p>
-            <button
-                class="btn-reservar bg-[#003C3E] text-white py-3 w-full rounded-full text-sm font-medium group-hover:bg-teal-700 transition">
-                Reservar
-            </button>
-        </div>
-        <div
-            class="bg-white rounded-xl shadow-lg hover:shadow-xl px-10 py-11 text-center w-full transition-all group max-w-[275px]">
-            <h2 class="text-lg font-bold text-[#78B548]">Podología</h2>
-            <div class="my-6 flex justify-center">
-                <img src="{{ asset('imgs/spa4.svg') }}" alt="Icono de masaje" class="h-[70px] w-auto">
-            </div>
-            <p class="text-[#003C3E] mb-6 text-[14px] min-h-[40px]">Cuida tus pies con expertos.</p>
-            <button
-                class="btn-reservar bg-[#003C3E] text-white py-3 w-full rounded-full text-sm font-medium group-hover:bg-teal-700 transition">
-                Reservar
-            </button>
-        </div>
     </div>
 
-    <div class="flex items-center justify-between pb-8 pt-18">
-        <div class="flex items-center gap-4">
-            <div>
-                <h3 class="title !mt-0">Mis reservas</h3>
-                <p class="text-[12px] text-[#003C3E]">Consulta y administra tus reservas fácilmente para disfrutar de una
-                    experiencia exclusiva en nuestro Country Club</p>
-            </div>
-        </div>
-        <a href="{{ route('reservas.spa.historial') }}" class="text-[#78B548] hover:underline">Historial de Reservas</a>
-
-    </div>
-    <div class="bg-[#003C3E] text-white rounded-lg overflow-hidden">
-        <div class="grid grid-cols-6 text-[#fff] font-semibold  p-3 place-items-center">
-            <div>Servicio</div>
-            <div>Nº de Sesion</div>
-            <div>Terapeuta</div>
-            <div>Fecha</div>
-            <div>Hora</div>
-            <div>Estado</div>
-        </div>
-        <div class="divide-y divide-gray-300 bg-gray-50">
-            <div class="grid grid-cols-6 p-3 place-items-center text-[#003C3E] text-[14px] font-medium">
-                <div>Masajes Integrales (6)</div>
-                <div>Sesión 2</div>
-                <div>Sofía Villanueva Sol</div>
-                <div>21/03/2025</div>
-                <div>12:34 pm</div>
-                <div>
-                    <span
-                        class="border border-[#6A6107] text-[#6A6107] bg-[#F2EB9F] p-1 rounded-[8px] text-sm ">Reservado</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Popup -->
     <div class="popup-pay hidden fixed inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-50">
@@ -181,8 +124,8 @@
                         <div>
                             <label class="block text-[#003C3E] font-medium mb-1">Número de DNI</label>
                             <div class="flex items-center border border-[#003C3E] rounded-lg px-3 py-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
                                     <g clip-path="url(#clip0_1692_4613)">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6 4.75C5.40326 4.75 4.83097 4.98705 4.40901 5.40901C3.98705 5.83097 3.75 6.40326 3.75 7V17C3.75 17.5967 3.98705 18.169 4.40901 18.591C4.83097 19.0129 5.40326 19.25 6 19.25H18C18.5967 19.25 19.169 19.0129 19.591 18.591C20.0129 18.169 20.25 17.5967 20.25 17V7C20.25 6.40326 20.0129 5.83097 19.591 5.40901C19.169 4.98705 18.5967 4.75 18 4.75H6ZM3.34835 4.34835C4.05161 3.64509 5.00544 3.25 6 3.25H18C18.9946 3.25 19.9484 3.64509 20.6517 4.34835C21.3549 5.05161 21.75 6.00544 21.75 7V17C21.75 17.9946 21.3549 18.9484 20.6517 19.6516C19.9484 20.3549 18.9946 20.75 18 20.75H6C5.00544 20.75 4.05161 20.3549 3.34835 19.6516C2.64509 18.9484 2.25 17.9946 2.25 17V7C2.25 6.00544 2.64509 5.05161 3.34835 4.34835ZM7.05546 8.05546C7.57118 7.53973 8.27065 7.25 9 7.25C9.72935 7.25 10.4288 7.53973 10.9445 8.05546C11.4603 8.57118 11.75 9.27065 11.75 10C11.75 10.7293 11.4603 11.4288 10.9445 11.9445C10.4288 12.4603 9.72935 12.75 9 12.75C8.27065 12.75 7.57118 12.4603 7.05546 11.9445C6.53973 11.4288 6.25 10.7293 6.25 10C6.25 9.27065 6.53973 8.57118 7.05546 8.05546ZM9 8.75C8.66848 8.75 8.35054 8.8817 8.11612 9.11612C7.8817 9.35054 7.75 9.66848 7.75 10C7.75 10.3315 7.8817 10.6495 8.11612 10.8839C8.35054 11.1183 8.66848 11.25 9 11.25C9.33152 11.25 9.64946 11.1183 9.88388 10.8839C10.1183 10.6495 10.25 10.3315 10.25 10C10.25 9.66848 10.1183 9.35054 9.88388 9.11612C9.64946 8.8817 9.33152 8.75 9 8.75ZM15 7.25C14.5858 7.25 14.25 7.58579 14.25 8C14.25 8.41421 14.5858 8.75 15 8.75H17C17.4142 8.75 17.75 8.41421 17.75 8C17.75 7.58579 17.4142 7.25 17 7.25H15ZM14.25 12C14.25 11.5858 14.5858 11.25 15 11.25H17C17.4142 11.25 17.75 11.5858 17.75 12C17.75 12.4142 17.4142 12.75 17 12.75H15C14.5858 12.75 14.25 12.4142 14.25 12ZM7 15.25C6.58579 15.25 6.25 15.5858 6.25 16C6.25 16.4142 6.58579 16.75 7 16.75H17C17.4142 16.75 17.75 16.4142 17.75 16C17.75 15.5858 17.4142 15.25 17 15.25H7Z"

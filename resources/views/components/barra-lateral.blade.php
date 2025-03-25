@@ -7,7 +7,7 @@
     </div>
     <div class="part1">
         <div class="logo">
-            <a href="{{ route('inicio') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="" /></a>
+            <a href="{{ route('inicio') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="logo" /></a>
             <p class="nombre">
                 Jose Gonzales <br />
                 Nro 4546

@@ -86,11 +86,14 @@
     display: none;
     visibility: hidden;
 }
-.checkbox-wrapper-65 input[type="checkbox"]:checked + .cbx {
+.checkbox-wrapper-65 input[type="checkbox"]:checked + .cbx,
+.checkbox-wrapper-65 input[type="radio"]:checked + .cbx {
     background-color: #606062;
     background-image: linear-gradient(#003c3e, #003c3e);
 }
-.checkbox-wrapper-65 input[type="checkbox"]:checked + .cbx svg {
+
+.checkbox-wrapper-65 input[type="checkbox"]:checked + .cbx svg,
+.checkbox-wrapper-65 input[type="radio"]:checked + .cbx svg {
     stroke-dashoffset: 0;
     transition: all 0.15s ease;
 }
