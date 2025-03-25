@@ -84,9 +84,13 @@ Route::prefix('reservas')->group(function () {
             return view('reservas.parrillas.index');
         })->name('reservas.parrillas');
 
-        Route::get('agregar-invitados', function () {
-            return view('reservas.parrillas.agregar-invitados');
-        })->name('reservas.parrillas.agregar-invitados');
+        Route::get('editar-invitados', function () {
+            return view('reservas.parrillas.editar-invitados');
+        })->name('reservas.parrillas.editar-invitados');
+
+        Route::get('invitados', function () {
+            return view('reservas.parrillas.invitados');
+        })->name('reservas.parrillas.invitados');
     });
 
     Route::prefix('spa')->group(function () {

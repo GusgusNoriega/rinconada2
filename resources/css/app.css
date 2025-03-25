@@ -10,6 +10,7 @@
     --fuente-vietnam: "Be Vietnam Pro", sans-serif;
     --fuente-manrope: "Manrope", sans-serif;
 }
+
 /*btn*/
 .btn-action {
     padding: 10px 20px;
@@ -19,7 +20,6 @@
     text-align: center;
     -size: 14px;
     font-weight: 500;
-    display: block;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
 }
