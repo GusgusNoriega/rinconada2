@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{-- <link rel="stylesheet" href="css/app.css" /> --}}
+    {{-- Dev --}}
     @vite('resources/css/app.css')
+    {{-- Production --}}
+    {{-- <link rel="stylesheet" href="{{ asset(path: 'css/app.css') }}" /> --}}
     <title>@yield('title')</title>
 </head>
 
@@ -23,7 +25,7 @@
                         stroke-linecap="round" />
                 </svg>
             </button>
-            <a href="{{ route('inicio') }}"><img src="../imgs/logo_blanco.png" alt="" /></a>
+            <a href="{{ route('inicio') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="" /></a>
             <button class="lupa">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                     fill="none">
@@ -43,8 +45,10 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js"></script>
-    {{-- <script src="js/app.js"></script> --}}
+    {{-- Dev --}}
     @vite('resources/js/app.js')
+    {{-- Production --}}
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     @stack('scripts')
 </body>
 

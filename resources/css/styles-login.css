@@ -123,7 +123,7 @@ button {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.contentLogin .part2 .formulario form label.contraseÃ±a::before {
+.contentLogin .part2 .formulario form label.contraseña::before {
     content: "";
     position: absolute;
     bottom: 17px;
@@ -209,7 +209,7 @@ button {
     .contentLogin::before {
         height: 113px;
     }
-    .contentLogin .part2 .formulario form label.contraseÃ±a::before,
+    .contentLogin .part2 .formulario form label.contraseña::before,
     .contentLogin .part2 .formulario form label.correo::before {
         bottom: 10px;
     }
@@ -281,7 +281,7 @@ button {
         font-size: 13px;
     }
     .contentLogin .part2 .formulario form label.correo::before,
-    .contentLogin .part2 .formulario form label.contraseÃ±a::before {
+    .contentLogin .part2 .formulario form label.contraseña::before {
         bottom: 15px;
     }
 }

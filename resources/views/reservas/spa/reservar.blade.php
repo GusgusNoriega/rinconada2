@@ -134,7 +134,7 @@
     <div id="popup-pay" class="hidden fixed inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-50">
         <div class="bg-[#F3FCFF] p-16 rounded-[24px] shadow-lg w-[550px] relative">
             <!-- Botón de Cerrar -->
-            <button class="close-popup absolute top-4 right-4 text-gray-800 hover:text-gray-900">
+            <button id="closePopup" class="absolute top-4 right-4 text-gray-800 hover:text-gray-900">
                 ✕
             </button>
 
@@ -142,7 +142,49 @@
 
             <div class="">
 
-                <div></div>
+                <div class="flex flex-col items-center text-center mb-8">
+                    <img src="" alt="" class="w-16 h-16 rounded-full mb-4">
+
+                    <h2 class="text-lg font-semibold">Masajes Integrales <span class="text-[#578334] text-sm">(6
+                            Sesiones)</span></h2>
+
+                    <p class="text-gray-700 text-sm">
+                        Terapeuta: <span class="font-bold text-[#003C3E]">Josefina Carls Montoya</span>
+                    </p>
+
+                    <p class="text-gray-700 text-sm">
+                        Fecha y Hora: <span class="font-bold text-[#003C3E]">Lunes 7 de Abril del 2025 - 5:00 PM</span>
+                    </p>
+
+                    <div class="flex items-center gap-2 text-gray-600 text-sm mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none">
+                            <g clip-path="url(#clip0_1665_7847)">
+                                <path
+                                    d="M5 11C5.53043 11 6.03914 11.2107 6.41421 11.5858C6.78929 11.9609 7 12.4696 7 13V15H17V13C17 12.4696 17.2107 11.9609 17.5858 11.5858C17.9609 11.2107 18.4696 11 19 11C19.5304 11 20.0391 11.2107 20.4142 11.5858C20.7893 11.9609 21 12.4696 21 13V17C21 17.5304 20.7893 18.0391 20.4142 18.4142C20.0391 18.7893 19.5304 19 19 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V13C3 12.4696 3.21071 11.9609 3.58579 11.5858C3.96086 11.2107 4.46957 11 5 11Z"
+                                    stroke="#003C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M5 11V6C5 5.20435 5.31607 4.44129 5.87868 3.87868C6.44129 3.31607 7.20435 3 8 3H16C16.7956 3 17.5587 3.31607 18.1213 3.87868C18.6839 4.44129 19 5.20435 19 6V11"
+                                    stroke="#003C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6 19V21" stroke="#003C3E" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M18 19V21" stroke="#003C3E" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1665_7847">
+                                    <rect width="24" height="24" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>Cabina N°2</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-6">Total a pagar</p>
+
+                    <p class="text-2xl font-bold text-green-900">S/. 182 PEN</p>
+                </div>
+
 
                 <div class="w-full flex justify-center">
                     <button class="btn-action">
@@ -157,13 +199,17 @@
 
 @push('scripts')
     <script>
-        // POPUP FILTROS
         const btnPay = document.getElementById("btn-pay");
         const popup = document.getElementById("popup-pay");
+        const closePopupPay = document.getElementById("closePopup");
 
-        if (btnPay && popup) {
+        if (btnPay && popup && closePopupPay) {
             btnPay.addEventListener("click", function() {
                 popup.classList.toggle("hidden");
+            });
+
+            closePopupPay.addEventListener("click", function() {
+                popup.classList.add("hidden");
             });
 
             document.addEventListener("click", function(event) {

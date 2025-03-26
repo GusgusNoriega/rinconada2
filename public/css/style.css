@@ -64,6 +64,7 @@ header {
     gap: 30px;
     flex-direction: column;
     position: fixed;
+    overflow: auto;
 }
 header .logo {
     display: flex;
