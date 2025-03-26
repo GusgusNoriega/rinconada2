@@ -78,6 +78,45 @@ Route::get('/parrillas', function () {
 })->name('parrillas');
 
 
+Route::prefix('reservas')->group(function () {
+    Route::prefix('parrillas')->group(function () {
+        Route::get('/', function () {
+            return view('reservas.parrillas.index');
+        })->name('reservas.parrillas');
+
+        Route::get('editar-invitados', function () {
+            return view('reservas.parrillas.editar-invitados');
+        })->name('reservas.parrillas.editar-invitados');
+
+        Route::get('invitados', function () {
+            return view('reservas.parrillas.invitados');
+        })->name('reservas.parrillas.invitados');
+    });
+
+    Route::prefix('spa')->group(function () {
+        Route::get('/', function () {
+            return view('reservas.spa.index');
+        })->name('reservas.spa');
+        Route::get('historial', function () {
+            return view('reservas.spa.historial');
+        })->name('reservas.spa.historial');
+        Route::get('masajes', function () {
+            return view('reservas.spa.masajes');
+        })->name('reservas.spa.masajes');
+        Route::get('masajes-terapias', function () {
+            return view('reservas.spa.masajes-terapias');
+        })->name('reservas.spa.masajes-terapias');
+        Route::get('reservar', function () {
+            return view('reservas.spa.reservar');
+        })->name('reservas.spa.reservar');
+    });
+
+});
+
+
+
+
+
 //Route::get('/cuenta', function () { return view('cuentas'); })->name('cuenta');
 Route::get('/cuenta', [PaymentController::class, 'showPaymentForm'])->name('cuenta');
 
