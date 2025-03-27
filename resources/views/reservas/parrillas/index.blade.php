@@ -44,7 +44,8 @@
             </div>
         </div>
         <div>
-            <button class="btn-action flex items-center gap-2">Nueva Reserva</button>
+            <button class="btn-action btn-reservar flex items-center gap-2">Nueva
+                Reserva</button>
         </div>
     </div>
     <div class="bg-[#003C3E] text-white rounded-lg overflow-hidden">
@@ -99,4 +100,158 @@
         </div>
     </div>
 
+    <!-- Popup -->
+    <div class="popup-pay hidden fixed inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-50">
+        <div class="bg-[#F3FCFF] p-16 rounded-[24px] shadow-lg w-[550px] relative">
+            <!-- Botón de Cerrar -->
+            <button class="close-popup absolute top-4 right-4 text-gray-800 hover:text-gray-900">
+                ✕
+            </button>
+
+            <h2 class="text-center text-[#003C3E] font-bold text-xl mb-8">Elige el tipo de reserva</h2>
+
+            <div class="">
+                <div class="relative w-full mb-8">
+                    <button
+                        class="dropdown-button w-full bg-[#D2EAEE] text-[#003C3E] text-left px-4 py-2 rounded-lg flex justify-between items-center">
+                        <span class="selected-option">Selecciona una opción</span>
+                        <svg class="w-4 h-4 transition-transform transform rotate-0 arrow-icon"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul
+                        class="dropdown-menu absolute w-full bg-white border border-gray-300 rounded-lg mt-1 hidden shadow-md">
+                        <li class="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">Para mí</li>
+                        <li class="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">Familiar</li>
+                        <li class="!px-4 !py-2 hover:bg-gray-100 cursor-pointer">Invitado</li>
+                    </ul>
+                </div>
+
+                <div class="datos-invitado hidden mb-10">
+                    <h3 class="text-[#003C3E] font-bold mb-2">Datos del invitado</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[#003C3E] font-medium mb-1">Nombre completo</label>
+                            <div class="flex items-center border border-[#003C3E] rounded-lg px-3 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <g clip-path="url(#clip0_1692_1577)">
+                                        <path
+                                            d="M8 7C8 8.06087 8.42143 9.07828 9.17157 9.82843C9.92172 10.5786 10.9391 11 12 11C13.0609 11 14.0783 10.5786 14.8284 9.82843C15.5786 9.07828 16 8.06087 16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7Z"
+                                            stroke="#003C3E" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21"
+                                            stroke="#003C3E" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1692_1577">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <input type="text" class="w-full bg-transparent focus:outline-none"
+                                    placeholder="Nombre del invitado">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[#003C3E] font-medium mb-1">Número de DNI</label>
+                            <div class="flex items-center border border-[#003C3E] rounded-lg px-3 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <g clip-path="url(#clip0_1692_4613)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6 4.75C5.40326 4.75 4.83097 4.98705 4.40901 5.40901C3.98705 5.83097 3.75 6.40326 3.75 7V17C3.75 17.5967 3.98705 18.169 4.40901 18.591C4.83097 19.0129 5.40326 19.25 6 19.25H18C18.5967 19.25 19.169 19.0129 19.591 18.591C20.0129 18.169 20.25 17.5967 20.25 17V7C20.25 6.40326 20.0129 5.83097 19.591 5.40901C19.169 4.98705 18.5967 4.75 18 4.75H6ZM3.34835 4.34835C4.05161 3.64509 5.00544 3.25 6 3.25H18C18.9946 3.25 19.9484 3.64509 20.6517 4.34835C21.3549 5.05161 21.75 6.00544 21.75 7V17C21.75 17.9946 21.3549 18.9484 20.6517 19.6516C19.9484 20.3549 18.9946 20.75 18 20.75H6C5.00544 20.75 4.05161 20.3549 3.34835 19.6516C2.64509 18.9484 2.25 17.9946 2.25 17V7C2.25 6.00544 2.64509 5.05161 3.34835 4.34835ZM7.05546 8.05546C7.57118 7.53973 8.27065 7.25 9 7.25C9.72935 7.25 10.4288 7.53973 10.9445 8.05546C11.4603 8.57118 11.75 9.27065 11.75 10C11.75 10.7293 11.4603 11.4288 10.9445 11.9445C10.4288 12.4603 9.72935 12.75 9 12.75C8.27065 12.75 7.57118 12.4603 7.05546 11.9445C6.53973 11.4288 6.25 10.7293 6.25 10C6.25 9.27065 6.53973 8.57118 7.05546 8.05546ZM9 8.75C8.66848 8.75 8.35054 8.8817 8.11612 9.11612C7.8817 9.35054 7.75 9.66848 7.75 10C7.75 10.3315 7.8817 10.6495 8.11612 10.8839C8.35054 11.1183 8.66848 11.25 9 11.25C9.33152 11.25 9.64946 11.1183 9.88388 10.8839C10.1183 10.6495 10.25 10.3315 10.25 10C10.25 9.66848 10.1183 9.35054 9.88388 9.11612C9.64946 8.8817 9.33152 8.75 9 8.75ZM15 7.25C14.5858 7.25 14.25 7.58579 14.25 8C14.25 8.41421 14.5858 8.75 15 8.75H17C17.4142 8.75 17.75 8.41421 17.75 8C17.75 7.58579 17.4142 7.25 17 7.25H15ZM14.25 12C14.25 11.5858 14.5858 11.25 15 11.25H17C17.4142 11.25 17.75 11.5858 17.75 12C17.75 12.4142 17.4142 12.75 17 12.75H15C14.5858 12.75 14.25 12.4142 14.25 12ZM7 15.25C6.58579 15.25 6.25 15.5858 6.25 16C6.25 16.4142 6.58579 16.75 7 16.75H17C17.4142 16.75 17.75 16.4142 17.75 16C17.75 15.5858 17.4142 15.25 17 15.25H7Z"
+                                            fill="#003C3E" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1692_4613">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <input type="number" class="w-full bg-transparent focus:outline-none"
+                                    placeholder="DNI del invitado">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full flex justify-center">
+                    <a href="{{ route('reservas.parrillas.reservar-horario') }}" class="btn-action">
+                        Continuar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const reservarBtns = document.querySelectorAll(".btn-reservar");
+            const popup = document.querySelector(".popup-pay");
+            const closePopupBtn = document.querySelector(".close-popup");
+            const dropdownButton = document.querySelector(".dropdown-button");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+            const selectedOption = document.querySelector(".selected-option");
+            const arrowIcon = document.querySelector(".arrow-icon");
+
+            // Abrir el popup
+            reservarBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    popup.classList.remove("hidden");
+                });
+            });
+
+            // Cerrar el popup
+            closePopupBtn.addEventListener("click", () => {
+                popup.classList.add("hidden");
+            });
+
+            // Manejar el dropdown
+            dropdownButton.addEventListener("click", () => {
+                dropdownMenu.classList.toggle("hidden");
+                arrowIcon.classList.toggle("rotate-180");
+            });
+
+            dropdownMenu.querySelectorAll("li").forEach(item => {
+                item.addEventListener("click", () => {
+                    selectedOption.textContent = item.textContent;
+                    dropdownMenu.classList.add("hidden");
+                    arrowIcon.classList.remove("rotate-180");
+                });
+            });
+
+            // Cerrar el dropdown si se hace clic fuera
+            document.addEventListener("click", (event) => {
+                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.add("hidden");
+                    arrowIcon.classList.remove("rotate-180");
+                }
+            });
+
+            /*select Invitado*/
+            const datosInvitado = document.querySelector(".datos-invitado");
+
+            dropdownMenu.querySelectorAll("li").forEach((item, index) => {
+                item.addEventListener("click", () => {
+                    selectedOption.textContent = item.textContent;
+                    dropdownMenu.classList.add("hidden");
+                    arrowIcon.classList.remove("rotate-180");
+
+                    // Mostrar sección solo si es "Invitado"
+                    if (index === 2) {
+                        datosInvitado.classList.remove("hidden");
+                    } else {
+                        datosInvitado.classList.add("hidden");
+                    }
+                });
+            });
+
+        });
+    </script>
+@endpush

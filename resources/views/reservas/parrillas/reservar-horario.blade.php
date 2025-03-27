@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'Spa')
+@section('title', 'Reservar - Parrillas | Rinconada')
 
 @section('content')
     <div class="flex items-center justify-between py-8">
@@ -48,61 +48,15 @@
     </div>
 
     <div class="">
-        <div class="flex gap-6">
+        <div class="flex gap-12 justify-between">
             <!-- Calendario -->
             <x-calendar />
 
             <div class="w-full">
-                <h2 class="text-lg font-semibold">Disponibilidad del <span class="font-bold">Lunes 24 de Abril del
+                <h2 class="text-lg font-normal">Disponibilidad del <span class="font-bold">Lunes 24 de Abril del
                         2025</span></h2>
-                <div class="grid grid-cols-6 gap-2 mt-8">
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">8:00 AM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">9:00 AM</button>
-                    <button class="border rounded-lg py-2 px-4 text-gray-400 border-gray-300" disabled>10:00 AM</button>
-                    <button class="border rounded-lg py-2 px-4 text-gray-400 border-gray-300" disabled>11:00 AM</button>
-                    <button class="border rounded-lg py-2 px-4 text-gray-400 border-gray-300" disabled>12:00 AM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">1:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">2:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">3:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">4:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">5:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">6:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">7:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">8:00 PM</button>
-                    <button class="border rounded-lg py-2 px-4 text-green-700 border-green-500">9:00 PM</button>
-                </div>
-                <div class="flex items-center gap-4 mt-8">
-                    <div class="bg-gray-200 w-20 h-20 rounded-full"><img src=""
-                            class="w-full h-full rounded-full object-cover" alt="">
-                    </div>
-                    <div>
-                        <h3 class="font-semibold">Josefina Carls Montoya</h3>
-                        <p class="text-sm text-gray-500">Terapeuta disponible en el horario seleccionado</p>
-                        <p class="text-sm text-gray-700 flex items-center gap-1">
-                            <span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none">
-                                    <g clip-path="url(#clip0_1671_13325)">
-                                        <path
-                                            d="M5 11C5.53043 11 6.03914 11.2107 6.41421 11.5858C6.78929 11.9609 7 12.4696 7 13V15H17V13C17 12.4696 17.2107 11.9609 17.5858 11.5858C17.9609 11.2107 18.4696 11 19 11C19.5304 11 20.0391 11.2107 20.4142 11.5858C20.7893 11.9609 21 12.4696 21 13V17C21 17.5304 20.7893 18.0391 20.4142 18.4142C20.0391 18.7893 19.5304 19 19 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V13C3 12.4696 3.21071 11.9609 3.58579 11.5858C3.96086 11.2107 4.46957 11 5 11Z"
-                                            stroke="#003C3E" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M5 11V6C5 5.20435 5.31607 4.44129 5.87868 3.87868C6.44129 3.31607 7.20435 3 8 3H16C16.7956 3 17.5587 3.31607 18.1213 3.87868C18.6839 4.44129 19 5.20435 19 6V11"
-                                            stroke="#003C3E" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M6 19V21" stroke="#003C3E" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M18 19V21" stroke="#003C3E" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1671_13325">
-                                            <rect width="24" height="24" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg></span> Cabina N°2
-                        </p>
-                    </div>
+                <div>
+                    <img src="{{ asset('imgs/parrillas-bg.webp') }}" alt="parrilas-bg">
                 </div>
             </div>
         </div>
@@ -115,8 +69,8 @@
                 <div>
                     <p class="text-gray-800 text-sm">Servicio Elegido</p>
                     <p class="text-green-600 font-bold text-[30px]">
-                        Masajes: <span class="text-gray-900 font-extrabold text-base">Masajes Integrales</span>
-                        <span class="text-gray-500 text-base">(6 Sesiones)</span>
+                        Parrillas: <span class="text-gray-900 font-extrabold text-base"></span>
+                        <span class="text-gray-500 text-base"></span>
                     </p>
                 </div>
             </div>
