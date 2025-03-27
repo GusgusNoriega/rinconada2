@@ -79,6 +79,13 @@ Route::get('/parrillas', function () {
 
 
 Route::prefix('reservas')->group(function () {
+    Route::get('/', function () {
+        return view('reservas.index');
+    })->name('reservas');
+    Route::get('historial', function () {
+        return view('reservas.historial');
+    })->name('reservas.historial');
+
     Route::prefix('parrillas')->group(function () {
         Route::get('/', function () {
             return view('reservas.parrillas.index');
@@ -87,10 +94,12 @@ Route::prefix('reservas')->group(function () {
         Route::get('editar-invitados', function () {
             return view('reservas.parrillas.editar-invitados');
         })->name('reservas.parrillas.editar-invitados');
-
         Route::get('invitados', function () {
             return view('reservas.parrillas.invitados');
         })->name('reservas.parrillas.invitados');
+        Route::get('reservar-horario', function () {
+            return view('reservas.parrillas.reservar-horario');
+        })->name('reservas.parrillas.reservar-horario');
     });
 
     Route::prefix('spa')->group(function () {
@@ -106,9 +115,9 @@ Route::prefix('reservas')->group(function () {
         Route::get('masajes-terapias', function () {
             return view('reservas.spa.masajes-terapias');
         })->name('reservas.spa.masajes-terapias');
-        Route::get('reservar', function () {
-            return view('reservas.spa.reservar');
-        })->name('reservas.spa.reservar');
+        Route::get('reservar-horario', function () {
+            return view('reservas.spa.reservar-horario');
+        })->name('reservas.spa.reservar-horario');
     });
 
 });

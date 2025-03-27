@@ -35,7 +35,7 @@
             </div>
         </div>
         <div>
-            <a href="{{ route('reservas.spa.reservar') }}" class="btn-action flex items-center gap-2">Continuar <svg
+            <a href="{{ route('reservas.spa.reservar-horario') }}" class="btn-action flex items-center gap-2">Continuar <svg
                     xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                     <g clip-path="url(#clip0_1692_875)">
                         <path d="M9 6.5L15 12.5L9 18.5" stroke="white" stroke-width="2" stroke-linecap="round"
