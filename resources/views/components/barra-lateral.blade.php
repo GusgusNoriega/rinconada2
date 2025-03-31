@@ -7,7 +7,7 @@
     </div>
     <div class="part1">
         <div class="logo">
-            <a href="{{ route('inicio') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="logo" /></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="logo" /></a>
             <p class="nombre">
                 Jose Gonzales <br />
                 Nro 4546
@@ -165,7 +165,9 @@
                         Deportes</a>
                 </div>
                 <ul>
-                    <li><a href="#">Item 1</a></li>
+                    <li class="active"><a href="{{ route('deportes.academias-deportivas') }}">Academias
+                            Deportivas</a></li>
+                    <li class="active"><a href="{{ route('deportes.reserva-deportiva') }}">Reserva deportiva</a></li>
                 </ul>
             </div>
 

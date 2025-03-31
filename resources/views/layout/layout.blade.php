@@ -25,7 +25,7 @@
                         stroke-linecap="round" />
                 </svg>
             </button>
-            <a href="{{ route('inicio') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="" /></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('imgs/logo_blanco.png') }}" alt="" /></a>
             <button class="lupa">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                     fill="none">
