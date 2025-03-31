@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('/inicio', function () {
-    return view('inicio');
-})->name('inicio');
-
 Route::get('/control-de-ingreso', function () {
     return view('control-de-ingreso');
 })->name('control-de-ingreso');
@@ -122,6 +118,25 @@ Route::prefix('reservas')->group(function () {
 
 });
 
+Route::prefix('deportes')->group(function () {
+    Route::get('/', function () {
+        return view('deportes.index');
+    })->name('deportes');
+    Route::get('historial', function () {
+        return view('deportes.historial');
+    })->name('deportes.historial');
+
+    Route::prefix('academias-deportivas')->group(function () {
+        Route::get('/', function () {
+            return view('deportes.academias-deportivas.index');
+        })->name('deportes.academias-deportivas');
+    });
+    Route::prefix('reserva-deportiva')->group(function () {
+        Route::get('/', function () {
+            return view('deportes.reserva-deportiva.index');
+        })->name('deportes.reserva-deportiva');
+    });
+});
 
 
 
