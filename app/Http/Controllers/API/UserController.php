@@ -6,10 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+
+    private $repository;
+    /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
+        $this->repository = new UserRepository();
+    }
     /**
      * @OA\Get(
      *     path="/api/users",
@@ -28,12 +38,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('detail')->get();
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuarios obtenidos correctamente',
-            'data'    => $users,
-        ], 200);
+        return $this->repository->getAllUsers();
     }
 
     /**
@@ -105,48 +110,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // Validar los datos del usuario
-        $validator = Validator::make($request->all(), [
-            'name'      => 'required|string|max:255',
-            'email'     => 'required|string|email|max:255|unique:users',
-            'password'  => 'required|string|min:8',
-            'estado'    => 'sometimes|boolean', 
-            'tipo_doc'  => 'nullable|string|max:50',
-            'nro_doc'   => 'nullable|string|max:50',
-            'detail'    => 'nullable|array',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Errores de validacion',
-                'errors'  => $validator->errors(),
-            ], 422);
-        }
-
-        // Tomar el valor de 'estado' o establecerlo en true si no viene
-        $estado = $request->has('estado') ? $request->estado : true;
-
-        // Crear el usuario
-        $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => bcrypt($request->password),
-            'estado'   => $estado,
-            'tipo_doc' => $request->tipo_doc,
-            'nro_doc'  => $request->nro_doc,
-        ]);
-
-        // Crear los detalles del usuario si se proporcionan
-        if ($request->has('detail')) {
-            $user->detail()->create($request->detail);
-        }
-
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuario creado correctamente',
-            'data'    => $user->load('detail'),
-        ], 201);
+        return $this->repository->createUser($request);
     }
 
     /**
@@ -179,20 +143,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('detail')->find($id);
-
-        if (!$user) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuario obtenido correctamente',
-            'data'    => $user,
-        ], 200);
+        return $this->repository->getDetailById($id);
     }
 
     /**
@@ -276,66 +227,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        // Validar los datos del usuario
-        $validator = Validator::make($request->all(), [
-            'name'     => 'sometimes|string|max:255',
-            'email'    => 'sometimes|string|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'sometimes|string|min:8',
-            'estado'   => 'sometimes|boolean',
-            'tipo_doc' => 'nullable|string|max:50',
-            'nro_doc'  => 'nullable|string|max:50',
-            'detail'   => 'nullable|array',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Errores de validacion',
-                'errors'  => $validator->errors(),
-            ], 422);
-        }
-
-        // Actualizar el usuario
-        if ($request->has('name')) {
-            $user->name = $request->name;
-        }
-        if ($request->has('email')) {
-            $user->email = $request->email;
-        }
-        if ($request->has('password')) {
-            $user->password = bcrypt($request->password);
-        }
-        if ($request->has('estado')) {
-            $user->estado = $request->estado;
-        }
-        if ($request->has('tipo_doc')) {
-            $user->tipo_doc = $request->tipo_doc;
-        }
-        if ($request->has('nro_doc')) {
-            $user->nro_doc = $request->nro_doc;
-        }
-
-        $user->save();
-
-        // Actualizar los detalles del usuario si se proporcionan
-        if ($request->has('detail')) {
-            $user->detail()->updateOrCreate([], $request->detail);
-        }
-
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuario actualizado correctamente',
-            'data'    => $user->load('detail'),
-        ], 200);
+        return $this->repository->updateUser($request, $id);
     }
 
     /**
@@ -411,44 +303,7 @@ class UserController extends Controller
      */
     public function updateWithoutSensitive(Request $request, $id)
     {
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        // Validar solo los campos permitidos
-        $validator = Validator::make($request->all(), [
-            'email'  => 'sometimes|string|email|max:255|unique:users,email,' . $user->id,
-            'detail' => 'nullable|array',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Errores de validacion',
-                'errors'  => $validator->errors(),
-            ], 422);
-        }
-
-        // Actualizar solo los campos permitidos
-        if ($request->has('email')) {
-            $user->email = $request->email;
-        }
-        $user->save();
-
-        if ($request->has('detail')) {
-            $user->detail()->updateOrCreate([], $request->detail);
-        }
-
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuario actualizado correctamente',
-            'data'    => $user->load('detail'),
-        ], 200);
+        return $this->repository->updateWithoutSensitiveData($request, $id);
     }
 
     /**
@@ -480,20 +335,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        // Eliminar el usuario y sus detalles
-        $user->detail()->delete();
-        $user->delete();
-
-        return response()->json(null, 204);
+        return $this->repository->deleteUser($id);
     }
 
     /**
@@ -579,69 +421,7 @@ class UserController extends Controller
      */
     public function storeRelative(Request $request, $id)
     {
-        // 1) Verificar que el usuario principal existe
-        $principalUser = User::find($id);
-        if (!$principalUser) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        // 2) Validar los campos para el nuevo usuario
-        $validator = Validator::make($request->all(), [
-            'name'              => 'required|string|max:255',
-            'email'             => 'required|string|email|max:255|unique:users',
-            'password'          => 'required|string|min:8',
-            'foto'              => 'string|max:255',
-            'relationship_type' => 'required|string|max:50', 
-            'tipo_doc'          => 'nullable|string|max:50',
-            'nro_doc'           => 'nullable|string|max:50',
-            'detail'            => 'nullable|array',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Errores de validacion',
-                'errors'  => $validator->errors(),
-            ], 422);
-        }
-
-        // 3) Crear el nuevo usuario
-        $newUser = User::create([
-            'name'     => $request->input('name'),
-            'email'    => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-            'foto'     => $request->input('foto'),
-            'tipo_doc' => $request->input('tipo_doc'),
-            'nro_doc'  => $request->input('nro_doc'),
-        ]);
-
-        // 4) Asignar el rol "familiar" (Spatie)
-        $newUser->assignRole('familiar');
-
-        // Crear el detalle si viene en el request
-        if ($request->has('detail')) {
-            $newUser->detail()->create($request->input('detail'));
-        }
-
-        // 4) Asociar al nuevo usuario como pariente en la tabla pivote
-        //    Supongamos que existe una relacion Many-to-Many en el modelo
-        //    (por ejemplo, 'relatives') con su pivote 'relationship_type'.
-        //    Asegurate de tener la relacion configurada en el modelo User:
-        //    $principalUser->relatives()->attach($newUser->id, [...])
-        //    Ajusta el nombre de la relacion y pivote segun tu modelo.
-        $principalUser->relatives()->attach($newUser->id, [
-            'relationship_type' => $request->input('relationship_type'),
-        ]);
-
-        // 5) Responder en JSON
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuario creado y asociado correctamente',
-            'data'    => $newUser->load('detail'),
-        ], 201);
+        return $this->repository->createRelativeUser($request, $id);
     }
 
     /**
@@ -675,7 +455,7 @@ class UserController extends Controller
      *                         @OA\Property(property="nombres", type="string", example="John"),
      *                         @OA\Property(property="apellido_pa", type="string", example="Doe"),
      *                         @OA\Property(property="apellido_ma", type="string", example="Smith")
-     *                        
+     *
      *                     )
      *                 )
      *             )
@@ -693,27 +473,7 @@ class UserController extends Controller
      */
     public function listRelatives($id)
     {
-        // 1) Buscar al usuario principal
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        // 2) Cargar a sus familiares (relatives) + detalles
-        //    ->withPivot('relationship_type') se define en la relacion del modelo,
-        //    pero al convertir a JSON, veras un nodo "pivot" con la informacion.
-        $relatives = $user->relatives()->with('detail')->get();
-
-        // 3) Responder en JSON
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Familiares obtenidos correctamente',
-            'data'    => $relatives,
-        ], 200);
+        return $this->repository->getRelativeUsers($id);
     }
 
     /**
@@ -746,31 +506,6 @@ class UserController extends Controller
      */
     public function showByCodigo($codigo)
     {
-        // Buscar en la tabla de detalles donde el codigo coincida
-        $detail = UserDetail::where('codigo', $codigo)->first();
-
-        if (!$detail) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        // Obtener el usuario con sus detalles
-        $user = User::with('detail')->find($detail->user_id);
-
-        if (!$user) {
-            return response()->json([
-                'type'    => 'error',
-                'message' => 'Usuario no encontrado',
-            ], 404);
-        }
-
-        return response()->json([
-            'type'    => 'success',
-            'message' => 'Usuario obtenido correctamente',
-            'data'    => $user,
-        ], 200);
+        return $this->repository->findByCode($codigo);
     }
 }
-

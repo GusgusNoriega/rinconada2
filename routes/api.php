@@ -3,9 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\API\PagoController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\PagoController;
+use App\Http\Controllers\WebhookUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/change-password', [AuthController::class, 'changePassword']);
 });
+
+Route::post('/webhook/users', [WebhookUsersController::class, 'handle']);
