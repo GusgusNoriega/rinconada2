@@ -27,7 +27,7 @@ class AuthController extends Controller
      * @OA\Post(
      *     path="/api/login",
      *     summary="Iniciar sesion de usuario",
-     *     description="Permite al usuario iniciar sesion mediante nro_doc y password, y obtener un token de acceso. 
+     *     description="Permite al usuario iniciar sesion mediante nro_doc y password, y obtener un token de acceso.
      *                  Tambien se encarga de eliminar tokens antiguos (mas de 1 dia) y mantener un maximo de 3 tokens por usuario.",
      *     tags={"Sesion"},
      *
@@ -109,8 +109,8 @@ class AuthController extends Controller
                 ], 422);
             }
             return redirect()->back()
-                             ->withErrors($validator)
-                             ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
         // Intentar autenticar
@@ -123,16 +123,23 @@ class AuthController extends Controller
                 ], 401);
             }
             return redirect()->back()
-                             ->withErrors(['nro_doc' => 'Nro de documento o contraseña no validos'])
-                             ->withInput();
+                ->withErrors(['nro_doc' => 'Nro de documento o contraseña no validos'])
+                ->withInput();
+        }
+
+        if (Auth::user()->estado == 0) {
+            Auth::logout();
+            return redirect()->back()
+                ->withErrors(['nro_doc' => 'Usuario desactivado'])
+                ->withInput();
         }
 
         $user = Auth::user();
 
         // Eliminar tokens antiguos (mas de 1 dia)
         $user->tokens()
-             ->where('created_at', '<', now()->subDay())
-             ->delete();
+            ->where('created_at', '<', now()->subDay())
+            ->delete();
 
         // Mantener un maximo de 3 tokens
         if ($user->tokens()->count() >= 3) {
@@ -301,4 +308,3 @@ class AuthController extends Controller
         ], 200);
     }
 }
-
