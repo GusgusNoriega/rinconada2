@@ -138,7 +138,6 @@ class WebhookUsersController extends Controller
         if (!$user) {
             return $this->error('Usuario no encontrado', 404);
         }
-
         $request = $request->merge((array) $data);
 
         return $this->repository->createRelativeUser($request, $user->id);
