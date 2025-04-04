@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Services\NiubizPaymentService;
 
 class PaymentController extends Controller
 {
@@ -70,9 +71,11 @@ class PaymentController extends Controller
     // 3. Retorna la vista con el sessionToken
     public function showPaymentForm()
     {
-        $accessToken  = $this->getAccessToken();
-        $sessionToken = $this->getSessionToken($accessToken);
+        //$accessToken  = $this->getAccessToken();
+        //$sessionToken = $this->getSessionToken($accessToken);
 
+        $niubzServices = new NiubizPaymentService();
+        $sessionToken = $niubzServices->getSessionToken(300.00);
         //dd($sessionToken);
         // EnvÃ­as $sessionToken a la vista para usarlo en el formulario
         return view('cuentas', compact('sessionToken'));
