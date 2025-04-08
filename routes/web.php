@@ -15,9 +15,7 @@ use App\Http\Controllers\PaymentController;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', App\Livewire\Page\Index::class)->name('home');
 
 Route::get('/control-de-ingreso', function () {
     return view('control-de-ingreso');
@@ -115,7 +113,6 @@ Route::prefix('reservas')->group(function () {
             return view('reservas.spa.reservar-horario');
         })->name('reservas.spa.reservar-horario');
     });
-
 });
 
 Route::prefix('deportes')->group(function () {
@@ -149,6 +146,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil', function () {
         return view('perfil');
     })->name('perfil');
+
+    Route::get('/perfil2', \App\Livewire\Profile\Index::class)->name('perfil-2');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/importar', [ImportController::class, 'index'])->name('importar.index');
